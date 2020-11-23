@@ -11,9 +11,9 @@ var pageScrollTimer = null;
 
 function fadeOnHoverMenuItem() {
     $('ul.nav li.dropdown').hover(function() {
-      $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(500);
+        $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(500);
     }, function() {
-      $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(500);
+        $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(500);
     });
 }
 
@@ -72,7 +72,7 @@ function codeMrr() {
             mode: "text/" + cmType,
             lineNumbers: true,
             lineWrapping: true,
-            autoRefresh:true,
+            autoRefresh: true,
             theme: 'base16-light',
             gutter: true,
             extraKeys: {
@@ -220,44 +220,11 @@ function pageMenuScroll() {
     }
 }
 
-// This is a hack. Assuming that we only ever have HTML and CSS tabs. 
-function tempTabCMFix() {
-    var tab = document.querySelectorAll('[id^=csst]');
-    for (var i = 0; i < tab.length; i++) {
-        if (tab[i].classList.contains('hide-on-render')) {
-            tab[i].classList.remove('active');
-        }
-    }
-}
-
-
-function toggleData(){
-    $( "#toggleInfo" ).click(function() {
-        $( "span.info" ).toggleClass( "hide" );
-    });
-
-   $( "#toggleRed" ).click(function() {
-    console.log('check');
-        $( ".red" ).toggleClass( "hide" );
-    });
-}
-
-
-
-// When the user scrolls the page, execute myFunction
-window.onscroll = function() {
-    pageMenuScroll();
-};
-
-window.onload = function() {
-    tempTabCMFix();
-};
 
 function init() {
     fadeOutFAlert();
     $('.tooltip').tooltipster();
     fadeOnHoverMenuItem();
-    toggleData();
 }
 
 init();

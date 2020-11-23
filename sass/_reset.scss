@@ -33,7 +33,7 @@ h5 {
 }
 
 h1 {
-    font-size: 45px;
+    font-size: 56px;
     line-height: 55px;
     padding: 60px 0 15px 0;
 }
@@ -93,5 +93,20 @@ strong {
 h3 {
     span {
         text-transform: capitalize;
+    }
+}
+
+a {
+    &:hover {
+        color: $secondary;
+    }
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    li {
+        display: inline-block;
     }
 }

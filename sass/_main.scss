@@ -1,7 +1,6 @@
 main {
-    &.login {
-        height: calc(100% - 112px);
-    }
+    display: inline-block;
+    width: 100%;
     .code-loading {
         width: 100px;
         height: 100px;
@@ -47,9 +46,6 @@ main {
 @include media-breakpoint-up(sm) {
     main {
         padding-top: 0;
-        &.login {
-            height: calc(100% - 57px);
-        }
     }
 }
 
@@ -60,8 +56,6 @@ main {
         -o-transition: .3s ease-in-out;
         transition: .3s ease-in-out;
         min-height: calc(100% - 57px);
-        // width: calc(100% - 300px);
-        // left: 300px;
         position: relative;
         &.active,
         &.login {
@@ -72,14 +66,7 @@ main {
 }
 
 section {
-    margin: 0 1rem;
-    &:first-of-type {
-        margin-top: 54px;
-        &.login,
-        &.admin {
-            margin-top: 0;
-        }
-    }
+    padding: 3rem 0;
     section {
         margin-bottom: 2rem;
     }
@@ -233,5 +220,34 @@ footer {
 @include media-breakpoint-up(lg) {
     .main {
         padding: 2rem 0;
+    }
+}
+
+.home {
+    .intro {
+        &:after {
+            content: "";
+            background-image: url(/img/image-1.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0.5;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            position: absolute;
+            z-index: -1;
+        }
+        display: block;
+        position: relative;
+        width: 100%;
+    }
+}
+
+.home__tutors {
+    img {
+        width: 100px;
+        margin: 0 auto;
     }
 }

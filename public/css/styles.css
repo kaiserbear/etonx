@@ -6515,7 +6515,7 @@ h5 {
   color: #1F354F; }
 
 h1 {
-  font-size: 45px;
+  font-size: 56px;
   line-height: 55px;
   padding: 60px 0 15px 0; }
 
@@ -6564,9 +6564,37 @@ strong {
 h3 span {
   text-transform: capitalize; }
 
+a:hover {
+  color: #96CBC3; }
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0; }
+  ul li {
+    display: inline-block; }
+
 .btn-primary {
   background-color: #1F354F;
-  border: 1px solid #1F354F; }
+  border: 1px solid #1F354F;
+  font-size: 16px;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  display: inline-block; }
+  .btn-primary.large {
+    font-size: 18px;
+    line-height: 28px; }
+  .btn-primary.xlarge {
+    font-size: 21px;
+    line-height: 31px; }
+
+.btn-small {
+  font-size: 14px; }
+
+a {
+  text-decoration: none; }
+  a:hover {
+    text-decoration: underline; }
 
 .form-control {
   display: block;
@@ -6613,113 +6641,21 @@ table tr th {
 .list-group-item:last-child {
   border-radius: unset; }
 
-.navbar-light .navbar-nav .nav-link.red {
-  color: red; }
-  .navbar-light .navbar-nav .nav-link.red.hide {
-    display: block;
-    opacity: 0; }
+nav.primary {
+  width: 100%;
+  display: block;
+  padding: 0 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12); }
 
-.currentNav {
-  width: 960px;
-  margin: 0 auto;
-  border-top: 3px solid #056582;
-  /* Columns */ }
-  .currentNav .fa-info-circle {
-    color: #407677; }
-  .currentNav .dropdown-multicol {
-    width: 960px;
-    position: relative;
-    left: 0; }
-    .currentNav .dropdown-multicol .info {
-      font-size: 11px;
-      display: block;
-      font-weight: bold;
-      font-family: helvetica;
-      color: #407677; }
-      .currentNav .dropdown-multicol .info.hide {
-        display: none; }
-  .currentNav .tooltip {
-    position: absolute;
-    right: 5px;
-    top: 8px;
-    background: white; }
-  .currentNav .toggleInfo {
-    position: fixed;
-    left: 1rem;
-    bottom: 0;
-    background: #1F354F;
-    color: white;
-    border-radius: 5px 5px 0 0;
-    padding: 0.25rem 0.75rem;
-    cursor: pointer; }
-  .currentNav .toggleRed {
-    position: fixed;
-    left: 12rem;
-    bottom: 0;
-    background: #d00409;
-    color: white;
-    border-radius: 5px 5px 0 0;
-    padding: 0.25rem 0.75rem;
-    cursor: pointer; }
-  .currentNav a.red {
-    color: red; }
-    .currentNav a.red.hide {
-      display: none; }
-  .currentNav span.bold {
-    font-weight: bold;
-    color: black; }
-  .currentNav span.strike {
-    text-decoration: line-through; }
-  .currentNav .multi-col2 > div.dropdown-col {
-    width: 49%; }
-  .currentNav .multi-col3 > div.dropdown-col {
-    width: 33%; }
-  .currentNav .multi-col4 > div.dropdown-col {
-    width: 25%; }
-  .currentNav.navbar {
-    padding: 0;
-    flex-flow: wrap; }
-  .currentNav .strap {
-    display: inline-block;
-    width: 300px;
-    position: relative;
-    left: -35px;
-    top: 2px; }
-  .currentNav .user-menu {
-    position: absolute;
-    top: 1rem;
-    right: 0;
-    display: flex;
-    list-style: none; }
-    .currentNav .user-menu li {
-      margin-right: 1rem; }
-    .currentNav .user-menu img {
-      width: 20px; }
-  .currentNav .dropdown-item {
-    white-space: inherit; }
-  .currentNav .nav-link {
-    text-decoration: none;
-    cursor: pointer; }
-  .currentNav .new-row {
-    display: flex;
-    flex-direction: row;
-    width: 100%; }
-  .currentNav .form-inline {
-    margin-left: auto;
-    margin-top: auto; }
-  .currentNav .navbar-brand img {
-    max-width: 200px; }
-  .currentNav .level-2,
-  .currentNav .level-3 {
-    text-transform: capitalize;
-    text-decoration: none; }
-  .currentNav .level-2 {
-    font-weight: bold; }
-  .currentNav .level-3 {
-    font-size: 14px; }
-
-.navbar {
-  padding: 0 1rem; }
+ul {
+  float: left;
+  padding: 1rem 0; }
+  ul a {
+    font-size: 18px; }
+  ul.right {
+    float: right; }
+  ul li {
+    margin: 0 1rem; }
 
 .dropdown:hover > .dropdown-menu {
   display: flex; }
@@ -6728,32 +6664,29 @@ table tr th {
   /*Without this, clicking will make it sticky*/
   pointer-events: none; }
 
-main.login {
-  height: calc(100% - 112px); }
-
-main .code-loading {
-  width: 100px;
-  height: 100px;
-  position: absolute;
-  left: calc(50% - 100px); }
-
-main .code-display {
-  opacity: 0; }
-  main .code-display h5 {
-    margin: 0 0 1rem 0;
-    padding-bottom: 0; }
-  main .code-display [class*="inline-code"] {
-    margin-bottom: 2rem; }
-
-main .CodeMirror {
-  background: rgba(60, 133, 248, 0.08);
-  margin-bottom: 2rem;
-  font-size: 1.2rem;
-  border: none;
-  height: auto; }
-
-main .CodeMirror-scroll {
-  max-height: 270px; }
+main {
+  display: inline-block;
+  width: 100%; }
+  main .code-loading {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    left: calc(50% - 100px); }
+  main .code-display {
+    opacity: 0; }
+    main .code-display h5 {
+      margin: 0 0 1rem 0;
+      padding-bottom: 0; }
+    main .code-display [class*="inline-code"] {
+      margin-bottom: 2rem; }
+  main .CodeMirror {
+    background: rgba(60, 133, 248, 0.08);
+    margin-bottom: 2rem;
+    font-size: 1.2rem;
+    border: none;
+    height: auto; }
+  main .CodeMirror-scroll {
+    max-height: 270px; }
 
 .reset-register {
   margin-top: 5rem; }
@@ -6767,9 +6700,7 @@ main .CodeMirror-scroll {
 
 @media (min-width: 576px) {
   main {
-    padding-top: 0; }
-    main.login {
-      height: calc(100% - 57px); } }
+    padding-top: 0; } }
 
 @media (min-width: 992px) {
   main {
@@ -6784,11 +6715,7 @@ main .CodeMirror-scroll {
       left: 0; } }
 
 section {
-  margin: 0 1rem; }
-  section:first-of-type {
-    margin-top: 54px; }
-    section:first-of-type.login, section:first-of-type.admin {
-      margin-top: 0; }
+  padding: 3rem 0; }
   section section {
     margin-bottom: 2rem; }
 
@@ -6899,3 +6826,25 @@ footer {
 @media (min-width: 992px) {
   .main {
     padding: 2rem 0; } }
+
+.home .intro {
+  display: block;
+  position: relative;
+  width: 100%; }
+  .home .intro:after {
+    content: "";
+    background-image: url(/img/image-1.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.5;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1; }
+
+.home__tutors img {
+  width: 100px;
+  margin: 0 auto; }
