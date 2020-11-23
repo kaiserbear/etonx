@@ -1,0 +1,237 @@
+main {
+    &.login {
+        height: calc(100% - 112px);
+    }
+    .code-loading {
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        left: calc(50% - 100px);
+    }
+    .code-display {
+        opacity: 0;
+        h5 {
+            margin: 0 0 1rem 0;
+            padding-bottom: 0;
+        }
+        [class*="inline-code"] {
+            margin-bottom: 2rem;
+        }
+    }
+    .CodeMirror {
+        background: rgba(60, 133, 248, 0.08);
+        margin-bottom: 2rem;
+        font-size: 1.2rem;
+        border: none;
+        height: auto;
+    }
+    .CodeMirror-scroll {
+        max-height: 270px;
+    }
+}
+
+.reset-register {
+    margin-top: 5rem;
+}
+
+.hide {
+    display: none;
+}
+
+@media (min-width: 979px) {
+    ul.nav li.dropdown:hover>ul.dropdown-menu {
+        display: block!important;
+    }
+}
+
+@include media-breakpoint-up(sm) {
+    main {
+        padding-top: 0;
+        &.login {
+            height: calc(100% - 57px);
+        }
+    }
+}
+
+@include media-breakpoint-up(lg) {
+    main {
+        -webkit-transition: .3s ease-in-out;
+        -moz-transition: .3s ease-in-out;
+        -o-transition: .3s ease-in-out;
+        transition: .3s ease-in-out;
+        min-height: calc(100% - 57px);
+        // width: calc(100% - 300px);
+        // left: 300px;
+        position: relative;
+        &.active,
+        &.login {
+            width: 100%;
+            left: 0;
+        }
+    }
+}
+
+section {
+    margin: 0 1rem;
+    &:first-of-type {
+        margin-top: 54px;
+        &.login,
+        &.admin {
+            margin-top: 0;
+        }
+    }
+    section {
+        margin-bottom: 2rem;
+    }
+}
+
+@include media-breakpoint-up(sm) {
+    .page--heading {
+        .col-sm-12 {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+    }
+}
+
+.page--content {
+    padding-top: 2rem;
+    section {
+        margin: 4rem 0;
+        &:first-of-type {
+            padding-top: 0;
+            margin-top: 0;
+        }
+    }
+    h2,
+    h3 {
+        &:first-of-type {
+            padding-top: 0;
+        }
+    }
+}
+
+.submitted {
+    color: #a9a9a9;
+    font-family: helvetica;
+    font-weight: 300;
+    strong {
+        font-weight: 900;
+    }
+}
+
+@include media-breakpoint-up(lg) {
+    .justify-right {
+        text-align: right;
+    }
+}
+
+@include media-breakpoint-up(lg) {
+    .max-large {
+        max-width: 960px;
+    }
+}
+
+.panel {
+    background: white;
+    border-left: 3px solid $primary;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.form-group {
+    position: relative;
+}
+
+.page--scroll {
+    margin: 0;
+    padding: 0 15px 0 0;
+}
+
+.login {
+    height: 100%;
+    .btn-primary {
+        margin-top: 3rem;
+    }
+    .container {
+        padding: 4rem 2rem;
+    }
+    .login-form {
+        padding: 2rem;
+        border-radius: 0;
+    }
+}
+
+.projects {
+    ul {
+        list-style: none;
+        padding: 0;
+        li {
+            margin: 1rem 0;
+            display: inline-flex;
+        }
+        a {
+            background: #primary;
+            color: white;
+            text-decoration: none;
+            padding: 1rem;
+            border-radius: 5px;
+        }
+    }
+}
+
+.fr-img-wrap {
+    text-align: center;
+    display: block;
+}
+
+blockquote {
+    padding: 0 0 0 1rem;
+    border-left: 3px solid $primary;
+}
+
+footer {
+    // background: $blue-3;
+    border-top: 1px solid $border;
+    padding: 1rem 0;
+    color: rgba(0, 0, 0, 0.49);
+    position: relative;
+    z-index: 30;
+    padding: 0 1rem;
+    width: 100%;
+    display: flex;
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        li {
+            margin: 1rem 0;
+        }
+    }
+}
+
+.user-controls {
+    form {
+        display: initial;
+    }
+}
+
+.main {
+    padding: 1rem 0;
+    position: relative;
+    &.side {
+        left: 280px;
+        position: relative;
+        // width: calc(100% - 280px);
+    }
+    h3 {
+        margin-bottom: 2rem;
+        padding-bottom: 0;
+    }
+}
+
+@include media-breakpoint-up(lg) {
+    .main {
+        padding: 2rem 0;
+    }
+}

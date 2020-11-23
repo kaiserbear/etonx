@@ -1,0 +1,164 @@
+.list-group-item {
+    &:last-child {
+        border-radius: unset;
+    }
+}
+
+.navbar-light .navbar-nav .nav-link {
+    &.red {
+        color: red;
+        &.hide {
+            display: block;
+            opacity: 0;
+        }
+    }
+}
+
+.currentNav {
+    width: 960px;
+    margin: 0 auto;
+    border-top: 3px solid #056582;
+    .fa-info-circle {
+        color: #407677;
+    }
+    /* Columns */
+    .dropdown-multicol {
+        width: 960px;
+        position: relative;
+        left: 0;
+        .info {
+            font-size: 11px;
+            display: block;
+            font-weight: bold;
+            font-family: helvetica;
+            color: #407677;
+            &.hide {
+                display: none;
+            }
+        }
+    }
+    .tooltip {
+        position: absolute;
+        right: 5px;
+        top: 8px;
+        background: white;
+    }
+    .toggleInfo {
+        position: fixed;
+        left: 1rem;
+        bottom: 0;
+        background: $primary;
+        color: white;
+        border-radius: 5px 5px 0 0;
+        padding: 0.25rem 0.75rem;
+        cursor: pointer;
+    }
+    .toggleRed {
+        position: fixed;
+        left: 12rem;
+        bottom: 0;
+        background: #d00409;
+        color: white;
+        border-radius: 5px 5px 0 0;
+        padding: 0.25rem 0.75rem;
+        cursor: pointer;
+    }
+    a {
+        &.red {
+            color: red;
+            &.hide {
+                display: none;
+            }
+        }
+    }
+    span {
+        &.bold {
+            font-weight: bold;
+            color: black;
+        }
+        &.strike {
+            text-decoration: line-through;
+        }
+    }
+    .dropdown-multicol>div.dropdown-col {
+        // display: flex;
+    }
+    .multi-col2>div.dropdown-col {
+        width: 49%;
+    }
+    .multi-col3>div.dropdown-col {
+        width: 33%;
+    }
+    .multi-col4>div.dropdown-col {
+        width: 25%;
+    }
+    &.navbar {
+        padding: 0;
+        flex-flow: wrap;
+    }
+    .strap {
+        display: inline-block;
+        width: 300px;
+        position: relative;
+        left: -35px;
+        top: 2px;
+    }
+    .user-menu {
+        position: absolute;
+        top: 1rem;
+        right: 0;
+        display: flex;
+        list-style: none;
+        li {
+            margin-right: 1rem;
+        }
+        img {
+            width: 20px;
+        }
+    }
+    .dropdown-item {
+        white-space: inherit;
+    }
+    .nav-link {
+        text-decoration: none;
+        cursor: pointer;
+    }
+    .new-row {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+    }
+    .form-inline {
+        margin-left: auto;
+        margin-top: auto;
+    }
+    .navbar-brand {
+        img {
+            max-width: 200px;
+        }
+    }
+    .level-2,
+    .level-3 {
+        text-transform: capitalize;
+        text-decoration: none;
+    }
+    .level-2 {
+        font-weight: bold;
+    }
+    .level-3 {
+        font-size: 14px;
+    }
+}
+
+.navbar {
+    padding: 0 1rem;
+}
+
+.dropdown:hover>.dropdown-menu {
+    display: flex;
+}
+
+.dropdown>.dropdown-toggle:active {
+    /*Without this, clicking will make it sticky*/
+    pointer-events: none;
+}
