@@ -45,7 +45,14 @@ function firstname(req) {
 router.get("/", function(req, res) {
     res.render("index", {
         version: pjson.version,
-        admin: false
+        user: false
+    });
+});
+
+router.get("/courses", function(req, res) {
+    res.render("courses", {
+        version: pjson.version,
+        user: false
     });
 });
 

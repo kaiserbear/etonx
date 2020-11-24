@@ -1,4 +1,3 @@
-$border: rgba(0, 0, 0, .12);
 // Primary Colours
 $primary: #1F354F;
 $secondary: #96CBC3;
@@ -7,8 +6,15 @@ $tertiary: #D8E2DA;
 $red: #EB5757;
 $orange: #F2994A;
 $yellow: #F2C94C;
+// Shades
+$black: #333333;
+$grey-1: #4F4F4F;
+$grey-2: #828282;
+$grey-3: #BDBDBD;
+$grey-4: #E0E0E0;
+$grey-5: #F2F2F2;
 $white: #ffffff;
-$black: #000000;
+$border: $grey-3;
 $gutter: 12px;
 $extra-width: 1368px;
 $desktop-menu-width: 20%;

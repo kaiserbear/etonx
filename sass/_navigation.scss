@@ -7,10 +7,24 @@
 nav {
     &.primary {
         width: 100%;
-        display: block;
-        padding: 0 1rem;
-        border-bottom: 1px solid $border;
+        padding: 1rem 2rem;
+        border-bottom: 1px solid #E0E0E0;
+        display: flex;
+        flex-direction: row;
+        .navbar-toggler {
+            position: absolute;
+            right: 4%;
+            border: none;
+        }
+        .logo-button {
+            margin-right: 2rem;
+        }
     }
+}
+
+.logo-button,
+.navbar-collapse {
+    display: flex;
 }
 
 ul {
