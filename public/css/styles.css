@@ -6599,6 +6599,10 @@ ul {
   background-color: #96CBC3;
   color: #1F354F; }
 
+.btn-tertiary {
+  background-color: #ffffff;
+  color: #1F354F; }
+
 .btn-small {
   font-size: 14px; }
 
