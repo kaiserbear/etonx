@@ -1,10 +1,11 @@
 .btn-primary {
     background-color: $primary;
-    border: 1px solid $primary;
     font-size: 16px;
     padding: 0.5rem 1rem;
     border-radius: 5px;
+    text-decoration: none;
     display: inline-block;
+    border: none;
     &.large {
         font-size: 18px;
         line-height: 28px;
@@ -12,6 +13,10 @@
     &.xlarge {
         font-size: 21px;
         line-height: 31px;
+    }
+    &:hover {
+        background-color: $secondary;
+        text-decoration: none;
     }
 }
 

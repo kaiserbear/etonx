@@ -66,7 +66,7 @@ main {
 }
 
 section {
-    padding: 3rem 0;
+    padding: 5rem 0;
     section {
         margin-bottom: 2rem;
     }
@@ -245,9 +245,47 @@ footer {
     }
 }
 
+.home__video {
+    padding: 0;
+    video {
+        display: block;
+    }
+}
+
 .home__tutors {
     img {
         width: 100px;
-        margin: 0 auto;
+        margin: 2rem auto;
+        display: block;
+    }
+    p {
+        margin: 2rem 0;
+    }
+}
+
+.home__sign-up {
+    background: $tertiary;
+    text-align: center;
+    padding: 5rem 0 8rem;
+    h2 {
+        color: white;
+        text-align: center;
+        padding: 3rem 0;
+    }
+    input {
+        font-size: 21px;
+        width: 50%;
+        padding: 0.4rem 2rem;
+        border-radius: 5px;
+    }
+}
+
+footer {
+    padding: 3rem 0;
+    background: #F1F1F1;
+    ul {
+        li {
+            display: inherit;
+        }
     }
 }
