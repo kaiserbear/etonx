@@ -17,6 +17,10 @@ const bcrypt = require('bcrypt-nodejs');
 const xoauth2 = require('xoauth2');
 const jsonfile = require('jsonfile')
 
+function toProperCase() {
+    return this.replace(/\w\S*/g, function(txt) { return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase(); });
+}
+
 
 // Category JSON
 const siteMap = './json/site-map.json';
@@ -49,12 +53,22 @@ router.get("/", function(req, res) {
     });
 });
 
+
 router.get("/courses", function(req, res) {
     res.render("courses", {
         version: pjson.version,
         user: false
     });
 });
+
+router.get("/courses/:course", function(req, res) {
+    res.render("course-page", {
+        version: pjson.version,
+        user: false,
+        course_title: req.params.course
+    });
+});
+
 
 
 // REGISTER ROUTES
