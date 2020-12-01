@@ -249,6 +249,10 @@ footer {
     }
 }
 
+.tertiary {
+    background: $tertiary;
+}
+
 .home__sign-up {
     background: $tertiary;
     text-align: center;
@@ -267,17 +271,67 @@ footer {
     }
 }
 
+.stand-out {
+    .panel {
+        background: $grey-5;
+        margin-bottom: 1rem;
+        height: 260px;
+        border-left: 0;
+        padding: 7rem 0 0;
+        h2 {
+            text-align: center;
+        }
+    }
+}
+
 .course-type-selection {
     .nav {
         width: 100%;
         margin: 0;
         padding: 0;
     }
+    .nav-tabs {
+        border-bottom: none;
+    }
     .tab-pane {
         padding: 3rem 1rem;
     }
     .tab-content>.active {
         display: inline-block;
+    }
+    .tab-content {
+        padding: 2rem;
+        display: inline-block;
+    }
+    .tab-container {
+        background: $darkBlack;
+        color: white;
+        padding: 5rem 0;
+        p,
+        h2 {
+            color: white;
+        }
+    }
+    .center-tabs {
+        display: table;
+        margin: 0 auto;
+    }
+    .ui-state-default,
+    .ui-state-active {
+        border-radius: 5px 5px 0 0;
+        .nav-link {
+            background-color: transparent;
+            border-color: transparent;
+            color: inherit;
+            font-size: 16px;
+        }
+    }
+    .ui-state-default {
+        background: $grey-5;
+    }
+    .ui-state-active {
+        background: $darkBlack;
+        color: white;
     }
 }
 
