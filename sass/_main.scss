@@ -149,24 +149,6 @@ section {
     }
 }
 
-.projects {
-    ul {
-        list-style: none;
-        padding: 0;
-        li {
-            margin: 1rem 0;
-            display: inline-flex;
-        }
-        a {
-            background: #primary;
-            color: white;
-            text-decoration: none;
-            padding: 1rem;
-            border-radius: 5px;
-        }
-    }
-}
-
 .fr-img-wrap {
     text-align: center;
     display: block;
@@ -242,6 +224,9 @@ footer {
         display: block;
         position: relative;
         width: 100%;
+        .btn {
+            margin-bottom: 2rem;
+        }
     }
 }
 
@@ -279,6 +264,20 @@ footer {
         padding: 0.4rem 2rem;
         border-radius: 5px;
         margin-right: 1rem;
+    }
+}
+
+.course-type-selection {
+    .nav {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    .tab-pane {
+        padding: 3rem 1rem;
+    }
+    .tab-content>.active {
+        display: inline-block;
     }
 }
 
@@ -335,6 +334,85 @@ footer {
         ul {
             li {
                 display: inline-block;
+            }
+        }
+    }
+}
+
+.purchase {
+    padding: 2rem 0;
+    label,
+    input {
+        width: 100%;
+        display: inline-block;
+        font-size: 18px;
+    }
+    select {
+        font-size: 18px;
+    }
+    h2 {
+        margin-bottom: 3rem;
+        span {
+            color: $orange;
+        }
+    }
+    #user-type {
+        // display: none;
+        color: $orange;
+    }
+    label {
+        &.error {
+            background: #dc3545;
+            padding: 1rem;
+            border: 1px solid #EB5757;
+            right: -280px;
+            font-style: italic;
+            color: white;
+            font-size: 14px;
+        }
+    }
+    img {
+        width: 100%;
+    }
+    .course-desc {
+        background: #f3f3f3;
+        padding: 2rem;
+        margin: 2rem 0;
+    }
+    .subtotal {
+        border-bottom: 1px solid $border;
+        display: flow-root;
+        margin: 0 0 2rem 0;
+        padding: 0 0 1rem;
+        h4 {
+            float: left;
+            &:not(:first-child) {
+                float: right;
+            }
+        }
+    }
+    .btn {
+        float: right;
+    }
+    p {
+        span {
+            color: $orange;
+            font-weight: bold;
+        }
+    }
+    .headless-logo {
+        text-align: center;
+        margin: 5rem 0;
+        img {
+            width: 244px;
+            margin: 0 auto;
+        }
+    }
+    .choice {
+        .btn {
+            float: left;
+            &:nth-of-type(1) {
+                float: right;
             }
         }
     }

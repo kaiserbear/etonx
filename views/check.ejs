@@ -1,0 +1,57 @@
+<% include ./partials/header %>
+    <% include ./partials/alerts %>
+        <% include ./partials/nav %>
+
+            <main id="main">
+
+                <section class="purchase">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-8 offset-md-2 col-lg-8 offset-lg-2 col-xl-8 offset-xl-2">
+
+
+                                <form id="check-form" action="/check" method="post">
+
+                                    <div id="first-screen">
+
+
+                                        <h2>We need to check some details before you purchase <span>University Interview Skills</span>.</h2>
+
+                                        <div class="form-group">
+                                            <label>Who will be taking the course?</label>
+                                            <select id="who_am_i" class="select-css" name="userType">
+                                            <option value="parent">I'm a parent buying for a student</option>
+                                            <option value="student">I'm a student under the age of 20</option>
+                                            <option value="teacher">I'm a teacher</option>
+                                        </select>
+                                        </div>
+
+                                        <!-- Date Picker -->
+                                        <div class="form-group">
+                                            <label>What's your <span id="user-type">child's</span> age?</label>
+                                            <input autocomplete="off" type="text" name="studentDob" id="datepicker">
+                                        </div>
+
+
+                                        <!-- Country of residence-->
+                                        <div class="form-group">
+                                            <label>What's your country of residence?</label>
+                                            <div class="form-item">
+                                                <input id="country_selector" type="text">
+                                                <label for="country_selector" style="display:none;">Select a country here...</label>
+                                            </div>
+                                            <div class="form-item" style="display:none;">
+                                                <input type="text" id="country_selector_code" name="country_selector_code" data-countrycodeinput="1" readonly="readonly" placeholder="Selected country code will appear here" />
+                                                <label for="country_selector_code">...and the selected country code will be updated here</label>
+                                            </div>
+                                        </div>
+                                        <button class="btn large btn-primary" type="submit">Proceed</button>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <% include ./partials/footer %>

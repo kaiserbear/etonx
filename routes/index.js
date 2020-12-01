@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const user = require("../models/user");
+const purchase = require("../models/purchase");
 const passport = require("passport");
 const middleware = require("../middleware");
 const FroalaEditor = require('../node_modules/wysiwyg-editor-node-sdk/lib/froalaEditor.js');
@@ -20,7 +21,6 @@ const jsonfile = require('jsonfile')
 function toProperCase() {
     return this.replace(/\w\S*/g, function(txt) { return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase(); });
 }
-
 
 // Category JSON
 const siteMap = './json/site-map.json';
@@ -69,6 +69,83 @@ router.get("/courses/:course", function(req, res) {
     });
 });
 
+
+
+// PURCHASE ROUTES
+router.get("/check", function(req, res) {
+    res.render("check", {
+        version: pjson.version,
+        user: false
+    });
+});
+
+
+router.post("/check", function(req, res) {
+
+    var userType = req.body.userType;
+    var dob = req.body.dob;
+    var country_selector_code = req.body.country_selector_code;
+
+    var check = {
+        userType: userType,
+        dob: dob,
+        country: country_selector_code,
+    }
+
+    // Create a new purchase order (stage 1, check) and save to DB
+    purchase.create(check, function(err, newCheck) {
+
+        if (err) {
+            console.log(err);
+        } else {
+            res.render("purchase", {
+                checkID: newCheck._id,
+                version: pjson.version,
+                user: false
+            });
+        }
+    });
+});
+
+
+router.post("/purchase", function(req, res) {
+
+    var checkID = req.body.checkID;
+
+    var purchaseInfo = {
+            name_on_card: req.body.name_on_card,
+            card_number: req.body.card_number,
+            expiry: req.body.expiry,
+            email1: req.body.email1,
+            promo: req.body.promo,
+            course: req.body.course
+        }
+        // Update the existing purchase record with information
+    purchase.findOneAndUpdate({ _id: checkID }, purchaseInfo, { new: true }, function(err, completePurchase) {
+        if (err) {
+            req.flash("error", "Couldn't update page");
+            res.redirect("/error");
+
+        } else {
+            console.log(completePurchase);
+            res.render("confirmation", {
+                version: pjson.version,
+                user: false,
+                completePurchase: completePurchase
+            });
+        }
+    });
+
+});
+
+// CONFIRMATION ROUTES
+
+router.get("/confirmation", function(req, res) {
+    res.redirect("confirmation", {
+        version: pjson.version,
+        user: false
+    });
+});
 
 
 // REGISTER ROUTES
@@ -235,6 +312,7 @@ router.get('/reset/:token', function(req, res) {
 
 router.post('/reset/:token', function(req, res) {
     async.waterfall([
+
         function(done) {
             user.findOne({
                 resetPasswordToken: req.params.token,
