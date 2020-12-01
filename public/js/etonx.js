@@ -37,6 +37,8 @@ function checkPurchaseUser() {
 
 function validation() {
 
+    console.log('check');
+
     // Errors as tooltips
 
     $('#check-form input[type="text"]').tooltipster({
@@ -59,14 +61,15 @@ function validation() {
             $(element).tooltipster('show');
         },
         success: function(label, element) {
+            console.log('success');
             $(element).tooltipster('hide');
         },
         rules: {
             // simple rule, converted to {required:true}
-            dob: "required"
+            studentDob: "required"
         },
         messages: {
-            dob: "We need to check the age of the student taking this course for safeguarding reasons."
+            studentDob: "We need to check the age of the student taking this course for safeguarding reasons."
         }
     });
 
