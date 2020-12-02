@@ -7066,7 +7066,10 @@ footer {
       .purchase .subtotal h4:not(:first-child) {
         float: right; }
   .purchase .btn {
-    float: right; }
+    float: right;
+    position: absolute;
+    bottom: 18px;
+    right: 0; }
   .purchase p span {
     color: #F2994A;
     font-weight: bold; }
