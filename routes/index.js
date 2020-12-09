@@ -181,12 +181,15 @@ router.post("/register", function(req, res, next) {
             }, function(err, user) {
 
                 if (user) {
+                    console.log('User already exists');
                     res.render("login", {
                         version: pjson.version,
                         errorEmail: req.body.username,
+                        errorMessage: null,
                         purchaseID: req.body.purchaseID
                     });
                 } else {
+                    console.log('New user created');
                     newUser.loginToken = token;
                     newUser.loginTokenExpires = Date.now() + 3600000; // 1 hour
 
@@ -270,6 +273,7 @@ router.get("/login", function(req, res) {
     res.render("login", {
         user: req.user,
         version: pjson.version,
+        errorEmail: null,
         errorMessage: null
     });
 });
@@ -284,10 +288,10 @@ router.post('/login', function(req, res, next) {
 
         if (err) return next(err)
         if (!user) {
-            console.log(info.message)
             return res.render("login", {
                 user: req.user,
                 version: pjson.version,
+                errorEmail: null,
                 errorMessage: info.message
             });
         }

@@ -12,7 +12,7 @@
                         </div>
 
                         <form action="/login" method="POST">
-                            <% if (typeof errorEmail === true) { %>
+                            <% if (typeof errorEmail === true || errorEmail) { %>
                                 <p class="error">We've already got a Student registered with the email address
                                     <%= errorEmail %>. Please sign in below.</p>
                                 <input id="email" type="hidden" value=" <%= purchaseID %>" />

@@ -204,7 +204,7 @@ function init() {
     $("#datepicker").datepicker({
         changeMonth: true,
         changeYear: true,
-        yearRange: "-100:+0",
+        yearRange: '2000:2007',
         dateFormat: 'dd/mm/yy'
     });
     $("#country_selector").countrySelect({
