@@ -6714,6 +6714,11 @@ nav.primary {
   nav.primary .logo-button {
     margin-right: 2rem; }
 
+nav .pull-right {
+  position: absolute;
+  right: 2px;
+  top: 22px; }
+
 .logo-button,
 .navbar-collapse {
   display: flex; }
@@ -7027,22 +7032,55 @@ footer {
   .list-of-courses ul li {
     display: inline-block; } }
 
-.purchase {
+.purchase .btn {
+  float: right;
+  position: absolute;
+  bottom: 18px;
+  right: 0; }
+
+.check .btn {
+  float: right; }
+
+.purchase,
+.check,
+.confirmation,
+.register {
   padding: 2rem 0; }
   .purchase label,
-  .purchase input {
+  .purchase input,
+  .check label,
+  .check input,
+  .confirmation label,
+  .confirmation input,
+  .register label,
+  .register input {
     width: 100%;
     display: inline-block;
     font-size: 18px; }
-  .purchase select {
+  .purchase select,
+  .check select,
+  .confirmation select,
+  .register select {
     font-size: 18px; }
-  .purchase h2 {
+  .purchase h2,
+  .check h2,
+  .confirmation h2,
+  .register h2 {
     margin-bottom: 3rem; }
-    .purchase h2 span {
+    .purchase h2 span,
+    .check h2 span,
+    .confirmation h2 span,
+    .register h2 span {
       color: #F2994A; }
-  .purchase #user-type {
+  .purchase #user-type,
+  .check #user-type,
+  .confirmation #user-type,
+  .register #user-type {
     color: #F2994A; }
-  .purchase label.error {
+  .purchase label.error,
+  .check label.error,
+  .confirmation label.error,
+  .register label.error {
     background: #dc3545;
     padding: 1rem;
     border: 1px solid #EB5757;
@@ -7050,39 +7088,93 @@ footer {
     font-style: italic;
     color: white;
     font-size: 14px; }
-  .purchase img {
+  .purchase img,
+  .check img,
+  .confirmation img,
+  .register img {
     width: 100%; }
-  .purchase .course-desc {
+  .purchase .course-desc,
+  .check .course-desc,
+  .confirmation .course-desc,
+  .register .course-desc {
     background: #f3f3f3;
     padding: 2rem;
     margin: 2rem 0; }
-  .purchase .subtotal {
+  .purchase .subtotal,
+  .check .subtotal,
+  .confirmation .subtotal,
+  .register .subtotal {
     border-bottom: 1px solid #BDBDBD;
     display: flow-root;
     margin: 0 0 2rem 0;
     padding: 0 0 1rem; }
-    .purchase .subtotal h4 {
+    .purchase .subtotal h4,
+    .check .subtotal h4,
+    .confirmation .subtotal h4,
+    .register .subtotal h4 {
       float: left; }
-      .purchase .subtotal h4:not(:first-child) {
+      .purchase .subtotal h4:not(:first-child),
+      .check .subtotal h4:not(:first-child),
+      .confirmation .subtotal h4:not(:first-child),
+      .register .subtotal h4:not(:first-child) {
         float: right; }
-  .purchase .btn {
-    float: right;
-    position: absolute;
-    bottom: 18px;
-    right: 0; }
-  .purchase p span {
+  .purchase p span,
+  .check p span,
+  .confirmation p span,
+  .register p span {
     color: #F2994A;
     font-weight: bold; }
-  .purchase .headless-logo {
+  .purchase .headless-logo,
+  .check .headless-logo,
+  .confirmation .headless-logo,
+  .register .headless-logo {
     text-align: center;
     margin: 5rem 0; }
-    .purchase .headless-logo img {
+    .purchase .headless-logo img,
+    .check .headless-logo img,
+    .confirmation .headless-logo img,
+    .register .headless-logo img {
       width: 244px;
       margin: 0 auto; }
-  .purchase .choice .btn {
+  .purchase .choice .btn,
+  .check .choice .btn,
+  .confirmation .choice .btn,
+  .register .choice .btn {
     float: left; }
-    .purchase .choice .btn:nth-of-type(1) {
+    .purchase .choice .btn:nth-of-type(1),
+    .check .choice .btn:nth-of-type(1),
+    .confirmation .choice .btn:nth-of-type(1),
+    .register .choice .btn:nth-of-type(1) {
       float: right; }
+  .purchase .radio-group div,
+  .check .radio-group div,
+  .confirmation .radio-group div,
+  .register .radio-group div {
+    margin-right: 4rem;
+    display: inline-block; }
+    .purchase .radio-group div label,
+    .check .radio-group div label,
+    .confirmation .radio-group div label,
+    .register .radio-group div label {
+      color: #4F4F4F; }
+    .purchase .radio-group div label,
+    .purchase .radio-group div input,
+    .check .radio-group div label,
+    .check .radio-group div input,
+    .confirmation .radio-group div label,
+    .confirmation .radio-group div input,
+    .register .radio-group div label,
+    .register .radio-group div input {
+      float: left;
+      width: inherit; }
+    .purchase .radio-group div input,
+    .check .radio-group div input,
+    .confirmation .radio-group div input,
+    .register .radio-group div input {
+      border: 0px;
+      width: 20px;
+      height: 20px;
+      margin-right: 0.5rem; }
 
 .country-select {
   position: relative;

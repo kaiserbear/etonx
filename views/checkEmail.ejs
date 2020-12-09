@@ -1,0 +1,26 @@
+<% include ./partials/header %>
+    <% include ./partials/alerts %>
+
+        <main id="main">
+
+            <section class="confirmation">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-8 offset-md-2 col-lg-8 offset-lg-2 col-xl-8 offset-xl-2 login-form">
+
+                            <div class="headless-logo">
+                                <img src="/img/etonx.png" />
+                            </div>
+
+                            <h2>Please check your email!</h2>
+                            <p>We've sent you a link to
+                                <%-successEmail%>
+                            </p>
+
+                            <a href="# ">Having problems?</a>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <% include ./partials/footer %>

@@ -49,7 +49,7 @@ function firstname(req) {
 router.get("/", function(req, res) {
     res.render("index", {
         version: pjson.version,
-        user: false
+        user: req.user
     });
 });
 
@@ -57,14 +57,15 @@ router.get("/", function(req, res) {
 router.get("/courses", function(req, res) {
     res.render("courses", {
         version: pjson.version,
-        user: false
+        user: false,
+        user: req.user
     });
 });
 
 router.get("/courses/:course", function(req, res) {
     res.render("course-page", {
         version: pjson.version,
-        user: false,
+        user: req.user,
         course_title: req.params.course
     });
 });
@@ -75,7 +76,7 @@ router.get("/courses/:course", function(req, res) {
 router.get("/check", function(req, res) {
     res.render("check", {
         version: pjson.version,
-        user: false
+        user: req.user
     });
 });
 
@@ -94,14 +95,13 @@ router.post("/check", function(req, res) {
 
     // Create a new purchase order (stage 1, check) and save to DB
     purchase.create(check, function(err, newCheck) {
-
         if (err) {
             console.log(err);
         } else {
             res.render("purchase", {
                 checkID: newCheck._id,
                 version: pjson.version,
-                user: false
+                user: req.user
             });
         }
     });
@@ -127,10 +127,9 @@ router.post("/purchase", function(req, res) {
             res.redirect("/error");
 
         } else {
-            console.log(completePurchase);
             res.render("confirmation", {
                 version: pjson.version,
-                user: false,
+                user: req.user,
                 completePurchase: completePurchase
             });
         }
@@ -143,7 +142,7 @@ router.post("/purchase", function(req, res) {
 router.get("/confirmation", function(req, res) {
     res.redirect("confirmation", {
         version: pjson.version,
-        user: false
+        user: req.user
     });
 });
 
@@ -152,37 +151,118 @@ router.get("/confirmation", function(req, res) {
 router.get("/register", function(req, res) {
     res.render("register", {
         version: pjson.version,
-        admin: false,
-        user: req.user
+        user: req.user,
+        purchaseID: req.query.id
     });
 });
 
 router.post("/register", function(req, res, next) {
 
     var newUser = new user({
+        // Email
         username: req.body.username,
-        password: req.body.password
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        password: req.body.password1,
+        gender: req.body.gender,
+        purchaseID: req.body.purchaseID
     });
 
-    user.findOne({
-        username: req.body.username
-    }, function(err, user) {
+    async.waterfall([
+        function(done) {
+            crypto.randomBytes(20, function(err, buf) {
+                var token = buf.toString('hex');
+                done(err, token);
+            });
+        },
+        function(token, done) {
+            user.findOne({
+                username: newUser.username
+            }, function(err, user) {
 
-        if (err) return done(err);
+                if (user) {
+                    res.render("login", {
+                        version: pjson.version,
+                        errorEmail: req.body.username,
+                        purchaseID: req.body.purchaseID
+                    });
+                } else {
+                    newUser.loginToken = token;
+                    newUser.loginTokenExpires = Date.now() + 3600000; // 1 hour
 
-        if (user) {
-            req.flash("error", req.body.username + " already exists");
-            return res.redirect('/register');
-        } else {
-            newUser.save(function(err) {
-                req.logIn(newUser, function(err) {
-                    req.flash("success", "Welcome " + newUser.username);
-                    res.redirect('/')
-                });
+                    newUser.save(function(err) {
+                        done(err, token, user);
+                    });
+
+                    var smtpTransport = nodemailer.createTransport({
+                        service: 'gmail',
+                        host: 'smtp.gmail.com',
+                        auth: {
+                            user: email_user,
+                            pass: email_password
+                        }
+                    });
+                    var mailOptions = {
+                        to: newUser.username,
+                        from: 'hello@uxjay.com',
+                        subject: 'Welcome to EtonX!.',
+                        text: 'You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n' +
+                            'Please click on the following link, or paste this into your browser to login to your dashboard:\n\n' +
+                            'http://' + req.headers.host + '/dashboard/' + token + '\n\n'
+                    };
+                    smtpTransport.sendMail(mailOptions, function(err) {
+                        if (err) {
+                            console.log(err);
+                        }
+                    });
+                }
+            });
+
+        }
+    ], function(err, done) {
+        if (err) {} else {
+            res.render("checkEmail", {
+                version: pjson.version,
+                successEmail: newUser.username,
+                purchaseID: req.body.purchaseID
             });
         }
-    });
 
+    });
+});
+
+// DASHBOARD ROUTES
+
+router.get("/dashboard", middleware.isLoggedIn, function(req, res) {
+    res.render("dashboard", {
+        version: pjson.version,
+        user: req.user
+    });
+});
+
+
+router.get('/dashboard/:token', function(req, res) {
+    user.findOne({
+        loginToken: req.params.token,
+        loginTokenExpires: {
+            $gt: Date.now()
+        }
+    }, function(err, user) {
+        if (!user) {
+            return res.redirect('/login');
+        }
+        req.logIn(user, function(err) {
+            if (err) {
+                console.log(err)
+            } else {
+                res.render('dashboard', {
+                    version: pjson.version,
+                    user: user
+                });
+            }
+        });
+
+    });
 });
 
 // LOGIN ROUTES
@@ -190,7 +270,7 @@ router.get("/login", function(req, res) {
     res.render("login", {
         user: req.user,
         version: pjson.version,
-        admin: false
+        errorMessage: null
     });
 });
 
@@ -204,13 +284,16 @@ router.post('/login', function(req, res, next) {
 
         if (err) return next(err)
         if (!user) {
-            req.flash("error", info.message);
-            return res.redirect('/login');
+            console.log(info.message)
+            return res.render("login", {
+                user: req.user,
+                version: pjson.version,
+                errorMessage: info.message
+            });
         }
         req.logIn(user, function(err) {
             if (err) return next(err);
-            req.flash("success", 'Welcome back ' + user.username);
-            return res.redirect('/');
+            return res.redirect('/dashboard/');
         });
     })(req, res, next);
 });
@@ -218,7 +301,6 @@ router.post('/login', function(req, res, next) {
 // LOGOUT ROUTE
 router.get("/logout", function(req, res) {
     req.logout();
-    req.flash("success", "You have been logged out.");
     res.redirect("/");
 });
 
@@ -295,7 +377,7 @@ router.get('/reset/:token', function(req, res) {
     user.findOne({
         resetPasswordToken: req.params.token,
         resetPasswordExpires: {
-            $gt: Date.now()
+            $gte: Date.now()
         }
     }, function(err, user) {
         if (!user) {
@@ -317,7 +399,7 @@ router.post('/reset/:token', function(req, res) {
             user.findOne({
                 resetPasswordToken: req.params.token,
                 resetPasswordExpires: {
-                    $gt: Date.now()
+                    $gte: Date.now()
                 }
             }, function(err, user) {
                 if (!user) {

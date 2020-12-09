@@ -21,6 +21,7 @@ function customTabs() {
 
 const $checkForm = $("#check-form");
 const $purchaseForm = $("#purchase-form");
+const $registerForm = $("#register-form");
 
 function checkPurchaseUser() {
 
@@ -37,7 +38,6 @@ function checkPurchaseUser() {
 
 function validation() {
 
-    console.log('check');
 
     // Errors as tooltips
 
@@ -48,6 +48,19 @@ function validation() {
     });
 
     $('#purchase-form input[type="text"]').tooltipster({
+        trigger: 'custom', // default is 'hover' which is no good here
+        onlyOne: false, // allow multiple tips to be open at a time
+        position: 'top' // display the tips to the right of the element
+    });
+
+
+    $('#register-form input').tooltipster({
+        trigger: 'custom', // default is 'hover' which is no good here
+        onlyOne: false, // allow multiple tips to be open at a time
+        position: 'top' // display the tips to the right of the element
+    });
+
+    $('#register-form input[type="password"]').tooltipster({
         trigger: 'custom', // default is 'hover' which is no good here
         onlyOne: false, // allow multiple tips to be open at a time
         position: 'top' // display the tips to the right of the element
@@ -120,6 +133,56 @@ function validation() {
                 required: "We need you to confirm your email address",
                 email: "This has to be a valid email",
                 equalTo: "Your emails don't match"
+            }
+        }
+    });
+
+    $registerForm.validate({
+        errorPlacement: function(error, element) {
+            $(element).tooltipster('update', $(error).text());
+            $(element).tooltipster('show');
+        },
+        success: function(label, element) {
+            $(element).tooltipster('hide');
+        },
+        rules: {
+            username: {
+                required: true,
+                email: true
+            },
+            email2: {
+                required: true,
+                email: true,
+                equalTo: '#email1'
+            },
+            firstName: "required",
+            lastName: "required",
+            password1: {
+                minlength: 5,
+                required: true
+            },
+            password2: {
+                equalTo: "#password1",
+                required: true
+            }
+        },
+        messages: {
+            username: {
+                required: "We need an email to send the receipt to",
+                email: "This has to be a valid email"
+            },
+            email2: {
+                required: "We need you to confirm your email address",
+                email: "This has to be a valid email",
+                equalTo: "Your emails don't match"
+            },
+            firstName: "We need to capture a recognised first name",
+            lastName: "We need to capture a recognised last name",
+            password1: {
+                minlength: "Sorry the password needs to be at least 5 characters"
+            },
+            password2: {
+                equalTo: "Sorry the passwords do not match"
             }
         }
     });

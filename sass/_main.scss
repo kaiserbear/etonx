@@ -394,6 +394,24 @@ footer {
 }
 
 .purchase {
+    .btn {
+        float: right;
+        position: absolute;
+        bottom: 18px;
+        right: 0;
+    }
+}
+
+.check {
+    .btn {
+        float: right;
+    }
+}
+
+.purchase,
+.check,
+.confirmation,
+.register {
     padding: 2rem 0;
     label,
     input {
@@ -445,12 +463,6 @@ footer {
             }
         }
     }
-    .btn {
-        float: right;
-        position: absolute;
-        bottom: 18px;
-        right: 0;
-    }
     p {
         span {
             color: $orange;
@@ -470,6 +482,26 @@ footer {
             float: left;
             &:nth-of-type(1) {
                 float: right;
+            }
+        }
+    }
+    .radio-group {
+        div {
+            margin-right: 4rem;
+            display: inline-block;
+            label {
+                color: $grey-1;
+            }
+            label,
+            input {
+                float: left;
+                width: inherit;
+            }
+            input {
+                border: 0px;
+                width: 20px;
+                height: 20px;
+                margin-right: 0.5rem;
             }
         }
     }

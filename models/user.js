@@ -4,8 +4,6 @@ const mongoose = require("mongoose");
 const bcrypt = require('bcrypt-nodejs');
 
 
-/* For now this can be minimum, but will probably need to change post MVP to include an image, and departments. */
-
 // create a User schema
 var userSchema = new mongoose.Schema({
     username: {
@@ -19,12 +17,19 @@ var userSchema = new mongoose.Schema({
     },
     resetPasswordToken: String,
     resetPasswordExpires: Date,
-    role: String
+    loginToken: String,
+    loginTokenExpires: Date,
+    role: String,
+    firstName: String,
+    lastName: String,
+    gender: String,
+    courses: Array,
+    purchases: Array
 });
 
 
 userSchema.pre('save', function(next) {
-    
+
     var user = this;
     var SALT_FACTOR = 5;
 

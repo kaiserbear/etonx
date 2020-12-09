@@ -10,6 +10,7 @@ var purchaseSchema = new mongoose.Schema({
     email1: String,
     promo: String,
     course: String,
+    studentEmail: String,
     author: {
         id: {
             type: mongoose.Schema.Types.ObjectId,
