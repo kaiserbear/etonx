@@ -7094,6 +7094,22 @@ footer {
     position: relative;
     top: 4px; }
 
+.access-screen p {
+  font-size: 18px;
+  margin-bottom: 2rem; }
+
+.access-screen strong {
+  color: orange; }
+
+.access-screen input[type=text] {
+  font-weight: 700;
+  font-size: 26px; }
+
+.access-code {
+  background: #ffcb00;
+  color: white;
+  text-align: center; }
+
 .dash--course {
   background: #F1F1F1;
   padding: 1rem; }

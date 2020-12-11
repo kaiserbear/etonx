@@ -1,0 +1,55 @@
+<% include ./partials/header %>
+    <% include ./partials/alerts %>
+
+        <main id="main">
+
+            <section class="confirmation">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-8 offset-md-2 col-lg-8 offset-lg-2 col-xl-8 offset-xl-2 login-form">
+
+                            <div class="headless-logo">
+                                <img src="/img/etonx.png" />
+                            </div>
+
+                            <h2>Thank you!</h2>
+                            <p>Here's what you've purchased:</p>
+
+                            <div class="row course-desc">
+                                <div class="col-3">
+                                    <img src="/img/courses/university-skills.jpg" alt="" />
+                                </div>
+                                <div class="col-9">
+                                    <h4>
+                                        <%- completePurchase.course %>
+                                    </h4>
+                                    <p>Maecenas a fermentum nulla, vel cursus nisi. Aliquam ultrices molestie velit, in iaculis leo. Curabitur vehicula felis a erat dapibus, sit amet maximus nisl maximus. Mauris et elit nulla.</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <p>You've been sent a receipt to <span><%= completePurchase.email1 %></span></p>
+                                </div>
+                            </div>
+
+                            <div class="row course-desc choice">
+                                <div class="col">
+                                    </p>
+                                    <% if (completePurchase.userType === 'parent') { %>
+                                        <p>You now need to enroll a student on this course. Choose from the following:</p>
+                                        <a href="#" class="btn btn-primary">Enroll an existing student</a>
+                                        <a href="/register?id=<%-completePurchase._id%>" class="btn btn-primary">Enroll a new student</a>
+                                        <% } else if (completePurchase.userType === 'student') { %>
+                                            <p>You now need to enroll on this course. Choose from the following:</p>
+                                            <a href="/login?id=<%-completePurchase._id%>" class="btn btn-primary">I'm an existing EtonX student</a>
+                                            <a href="/register?id=<%-completePurchase._id%>" class="btn btn-primary">I'm a new EtonX student</a>
+                                            <%  } %>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <% include ./partials/footer %>

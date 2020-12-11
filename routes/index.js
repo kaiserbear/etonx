@@ -278,6 +278,16 @@ router.get("/login", function(req, res) {
     });
 });
 
+// LOGIN ROUTES
+router.get("/access-code", function(req, res) {
+    res.render("access", {
+        user: req.user,
+        version: pjson.version,
+        accessCode: req.query.accessCode,
+        institution: req.query.institution
+    });
+});
+
 router.post('/login', function(req, res, next) {
 
     passport.authenticate('local', {
