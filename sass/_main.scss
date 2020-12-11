@@ -408,6 +408,127 @@ footer {
     }
 }
 
+.full-width {
+    margin: 0 2rem;
+}
+
+.dashboard {
+    padding: 2rem 0;
+    .card {
+        border-radius: 0;
+    }
+    .entry {
+        border-bottom: 1px solid $grey-4;
+        border-left: 1px solid $grey-4;
+        border-right: 1px solid $grey-4;
+        display: flex;
+        padding: 1rem 0;
+        ul {
+            li {
+                margin-bottom: 0.5rem;
+            }
+        }
+        sub {
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+        .btn {
+            margin-top: 1rem;
+        }
+    }
+    .collapse.show {
+        position: relative;
+    }
+}
+
+.dropleft {
+    .dropdown-menu {
+        display: block;
+    }
+}
+
+.dash--schedule {
+    background: #ceffb6;
+    padding: 1rem;
+    min-height: 66px;
+    vertical-align: middle;
+    position: relative;
+    border: 1px solid $border;
+    strong {
+        position: relative;
+        top: 4px;
+    }
+}
+
+.dash--course {
+    background: #F1F1F1;
+    padding: 1rem;
+    .logo {
+        width: 28px;
+        margin-right: 1rem;
+    }
+    .action {
+        float: right;
+        .tutor-group {
+            background: #9B51E0;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            border-radius: 50px;
+            width: 30px;
+            height: 30px;
+            display: inline-block;
+            &:after {
+                content: "TG";
+                position: relative;
+                top: 4px;
+            }
+        }
+        .locked,
+        .status,
+        .toggle {
+            margin-left: 1rem;
+        }
+    }
+    .toggle {
+        float: right;
+        img {
+            transform: rotate(0deg);
+            -ms-transform: rotate(0deg);
+        }
+        &[aria-expanded="true"] {
+            img {
+                transform: rotate(180deg);
+                -ms-transform: rotate(180deg);
+            }
+        }
+        img {
+            width: 21px;
+        }
+    }
+}
+
+.dash--alert {
+    position: relative;
+    right: 0;
+    top: 0;
+    background: #d6ca1b38;
+    padding: 1rem 1rem 0.5rem 1rem;
+    width: 100%;
+    text-align: center;
+    margin: 2rem 0;
+    img {
+        width: 30px;
+    }
+    img,
+    p,
+    a {
+        display: inline-block;
+        margin-left: 1rem;
+    }
+}
+
 .purchase,
 .check,
 .confirmation,

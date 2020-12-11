@@ -24,6 +24,27 @@ nav {
         position: absolute;
         right: 2px;
         top: 22px;
+        .notifcation-indicator {
+            background: $red;
+            color: $white;
+            text-align: center;
+            padding: 0.3rem;
+            border-radius: 50px;
+            width: 34px;
+            position: absolute;
+            top: 3px;
+            left: -45px;
+        }
+        .dropdown {
+            &:hover {
+                >.dropdown-menu {
+                    text-align: right;
+                    right: 0;
+                    left: auto;
+                    display: block;
+                }
+            }
+        }
     }
 }
 
