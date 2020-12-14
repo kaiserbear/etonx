@@ -268,6 +268,163 @@ router.get('/dashboard/:token', function(req, res) {
     });
 });
 
+// B2B ROUTES
+router.get("/access-code", function(req, res) {
+    res.render("access", {
+        user: req.user,
+        version: pjson.version,
+        accessCode: req.query.accessCode,
+        institution: req.query.institution
+    });
+});
+
+router.get("/access-confirmation", function(req, res) {
+    res.render("access-confirmation", {
+        user: req.user,
+        version: pjson.version
+    });
+});
+
+router.get("/access-check", function(req, res) {
+    res.render("access-check", {
+        user: req.user,
+        version: pjson.version
+    });
+});
+
+router.post("/access-check", function(req, res) {
+
+    var userType = req.body.userType;
+    var dob = req.body.dob;
+    var country_selector_code = req.body.country_selector_code;
+
+    var check = {
+        dob: dob,
+        country: country_selector_code,
+    }
+
+    purchase.create(check, function(err, newCheck) {
+        if (err) {
+            console.log(err);
+        } else {
+            res.render("access-register", {
+                checkID: newCheck._id,
+                version: pjson.version,
+                user: req.user
+            });
+        }
+    });
+});
+
+router.get('/access-courses/:token', function(req, res) {
+    user.findOne({
+        loginToken: req.params.token,
+        loginTokenExpires: {
+            $gt: Date.now()
+        }
+    }, function(err, user) {
+        if (!user) {
+            return res.redirect('/login');
+        }
+        req.logIn(user, function(err) {
+            if (err) {
+                console.log(err)
+            } else {
+                res.render('access-courses', {
+                    version: pjson.version,
+                    user: user
+                });
+            }
+        });
+
+    });
+});
+
+// REGISTER ROUTES
+router.get("/access-register", function(req, res) {
+    res.render("access-register", {
+        version: pjson.version,
+        user: req.user,
+        purchaseID: req.query.id
+    });
+});
+
+router.post("/access-register", function(req, res, next) {
+
+    var newUser = new user({
+        // Email
+        username: req.body.username,
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        password: req.body.password1,
+        gender: req.body.gender
+    });
+
+    async.waterfall([
+        function(done) {
+            crypto.randomBytes(20, function(err, buf) {
+                var token = buf.toString('hex');
+                done(err, token);
+            });
+        },
+        function(token, done) {
+            user.findOne({
+                username: newUser.username
+            }, function(err, user) {
+
+                if (user) {
+                    console.log('User already exists');
+                    res.render("login", {
+                        version: pjson.version,
+                        errorEmail: req.body.username,
+                        errorMessage: null
+                    });
+                } else {
+                    console.log('New user created');
+                    newUser.loginToken = token;
+                    newUser.loginTokenExpires = Date.now() + 3600000; // 1 hour
+
+                    newUser.save(function(err) {
+                        done(err, token, user);
+                    });
+
+                    var smtpTransport = nodemailer.createTransport({
+                        service: 'gmail',
+                        host: 'smtp.gmail.com',
+                        auth: {
+                            user: email_user,
+                            pass: email_password
+                        }
+                    });
+                    var mailOptions = {
+                        to: newUser.username,
+                        from: 'hello@uxjay.com',
+                        subject: 'Welcome to EtonX!.',
+                        text: 'You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n' +
+                            'Please click on the following link, or paste this into your browser to login to your dashboard:\n\n' +
+                            'http://' + req.headers.host + '/access-courses/' + token + '\n\n'
+                    };
+                    smtpTransport.sendMail(mailOptions, function(err) {
+                        if (err) {
+                            console.log(err);
+                        }
+                    });
+                }
+            });
+
+        }
+    ], function(err, done) {
+        if (err) {} else {
+            res.render("checkEmail", {
+                version: pjson.version,
+                successEmail: newUser.username,
+                purchaseID: req.body.purchaseID
+            });
+        }
+
+    });
+});
+
 // LOGIN ROUTES
 router.get("/login", function(req, res) {
     res.render("login", {
@@ -275,16 +432,6 @@ router.get("/login", function(req, res) {
         version: pjson.version,
         errorEmail: null,
         errorMessage: null
-    });
-});
-
-// LOGIN ROUTES
-router.get("/access-code", function(req, res) {
-    res.render("access", {
-        user: req.user,
-        version: pjson.version,
-        accessCode: req.query.accessCode,
-        institution: req.query.institution
     });
 });
 
@@ -362,7 +509,7 @@ router.post('/forgot', function(req, res, next) {
             var mailOptions = {
                 to: user.username,
                 from: 'hello@kaiserbear.co.uk',
-                subject: 'UXNOTHS: Password Reset.',
+                subject: 'EtonX: Password Reset.',
                 text: 'You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n' +
                     'Please click on the following link, or paste this into your browser to complete the process:\n\n' +
                     'http://' + req.headers.host + '/reset/' + token + '\n\n' +
