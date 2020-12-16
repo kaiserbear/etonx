@@ -113,25 +113,56 @@ router.post("/purchase", function(req, res) {
     var checkID = req.body.checkID;
 
     var purchaseInfo = {
-            name_on_card: req.body.name_on_card,
-            card_number: req.body.card_number,
-            expiry: req.body.expiry,
-            email1: req.body.email1,
-            promo: req.body.promo,
-            course: req.body.course
-        }
-        // Update the existing purchase record with information
-    purchase.findOneAndUpdate({ _id: checkID }, purchaseInfo, { new: true }, function(err, completePurchase) {
-        if (err) {
-            req.flash("error", "Couldn't update page");
-            res.redirect("/error");
+        name_on_card: req.body.name_on_card,
+        card_number: req.body.card_number,
+        expiry: req.body.expiry,
+        email1: req.body.email1,
+        promo: req.body.promo,
+        course: req.body.course
+    }
 
-        } else {
-            res.render("confirmation", {
-                version: pjson.version,
-                user: req.user,
-                completePurchase: completePurchase
+    async.waterfall([
+        function(done) {
+            console.log('one');
+            purchase.findOneAndUpdate({ _id: checkID }, purchaseInfo, { new: true }, function(err, completePurchase) {
+                if (err) {
+                    req.flash("error", "Couldn't update page");
+                    res.redirect("/error");
+                } else {
+
+                    var smtpTransport = nodemailer.createTransport({
+                        service: 'gmail',
+                        host: 'smtp.gmail.com',
+                        auth: {
+                            user: email_user,
+                            pass: email_password
+                        }
+                    });
+                    var mailOptions = {
+                        to: purchaseInfo.email1,
+                        from: 'hello@uxjay.com',
+                        subject: 'Thank you for purchasing from EtonX!.',
+                        text: 'Thank you for purchasing the test course from our prototype!\n\n' +
+                            'To register a new user, please click the following link:\n\n' +
+                            'http://' + req.headers.host + '/register?' + checkID + '\n\n'
+                    };
+                    smtpTransport.sendMail(mailOptions, function(err) {
+                        if (err) {
+                            console.log(err);
+                        }
+                    });
+
+                    res.render("confirmation", {
+                        version: pjson.version,
+                        user: req.user,
+                        completePurchase: completePurchase
+                    });
+                }
             });
+        }
+    ], function(err, done) {
+        if (err) {} else {
+
         }
     });
 
