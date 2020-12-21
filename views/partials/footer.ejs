@@ -68,6 +68,15 @@
 <script src="/js/countrySelect.js"></script>
 <!-- Main javascript for EtonX app -->
 <script src="/js/etonx.js"></script>
+
+<script src="https://unpkg.com/swup@latest/dist/swup.min.js"></script>
+
+<!-- <script language="javascript" type="text/javascript" src="/assets/js/SwupBodyClassPlugin.min.js"></script> -->
+
+<script type="text/javascript">
+    const swup = new Swup(); // only this line when included with script tag
+    swup.on('contentReplaced', etonXinit);
+</script>
 </body>
 
 </html>

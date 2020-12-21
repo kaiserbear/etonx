@@ -198,7 +198,7 @@ function courseTypes() {
     });
 }
 
-function init() {
+function etonXinit() {
     customTabs();
     $('.tooltip').tooltipster();
     $("#datepicker").datepicker({
@@ -216,4 +216,4 @@ function init() {
     courseTypes();
 }
 
-init();
+etonXinit();
