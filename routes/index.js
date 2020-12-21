@@ -240,7 +240,7 @@ router.post("/register", function(req, res, next) {
                         to: newUser.username,
                         from: 'hello@uxjay.com',
                         subject: 'Welcome to EtonX!.',
-                        text: 'You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n' +
+                        text: 'Thanks for creating an account with us.\n\n' +
                             'Please click on the following link, or paste this into your browser to login to your dashboard:\n\n' +
                             'http://' + req.headers.host + '/dashboard/' + token + '\n\n'
                     };

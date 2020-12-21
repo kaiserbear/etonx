@@ -217,6 +217,12 @@ function etonXinit() {
     checkPurchaseUser();
     validation();
     courseTypes();
+
+    // function callTypeForm() {
+    //     $("body a:last-child").click()
+
+    // }
+    // callTypeForm();
 }
 
 etonXinit();
