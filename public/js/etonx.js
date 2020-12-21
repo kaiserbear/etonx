@@ -199,6 +199,9 @@ function courseTypes() {
 }
 
 function etonXinit() {
+
+    console.log('check');
+
     customTabs();
     $('.tooltip').tooltipster();
     $("#datepicker").datepicker({
