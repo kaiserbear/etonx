@@ -198,16 +198,63 @@ function courseTypes() {
     });
 }
 
-function etonXinit() {
+function registerReload() {
+    if ($('.reload').length > 0) {
+        console.log('registerReload');
+        if (window.localStorage) {
+            if (!localStorage.getItem('firstLoad')) {
+                localStorage['firstLoad'] = true;
+                window.location.reload();
+            } else
+                localStorage.removeItem('firstLoad');
+        }
+    }
+}
 
+function openChatBox() {
+    var button = $('[role="button"]');
+
+    button.each(function() {
+
+        // Default mouse click event
+        $(this).on('click', buttonClick);
+
+        // Handle 'space bar' and 'enter' click events,
+        // expected behaviour for an actual <button> element
+        $(this).on('keydown', function(e) {
+            if (e.which === 32 || e.which === 13) {
+                e.preventDefault();
+                buttonClick();
+            }
+        });
+
+        if ($(this).hasClass('on')) {
+            console.log('coool beans')
+        } else {
+            $(this).addClass('on').click();
+        }
+
+    });
+
+    function buttonClick() {
+        // Do something useful on each click
+        console.log('Clicked!');
+    }
+}
+
+function etonXinit() {
+    console.log('etonXinit');
     customTabs();
+
     $('.tooltip').tooltipster();
+
     $("#datepicker").datepicker({
         changeMonth: true,
         changeYear: true,
         yearRange: '2000:2007',
         dateFormat: 'dd/mm/yy'
     });
+
     $("#country_selector").countrySelect({
         preferredCountries: ['gb', 'us']
     });
@@ -215,19 +262,8 @@ function etonXinit() {
     checkPurchaseUser();
     validation();
     courseTypes();
-
-    if ($('.reload')) {
-        (function() {
-            if (window.localStorage) {
-                if (!localStorage.getItem('firstLoad')) {
-                    localStorage['firstLoad'] = true;
-                    window.location.reload();
-                } else
-                    localStorage.removeItem('firstLoad');
-            }
-        })();
-    }
-
+    registerReload();
+    // openChatBox();
 }
 
 etonXinit();
