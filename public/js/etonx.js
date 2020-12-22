@@ -212,33 +212,17 @@ function registerReload() {
 }
 
 function openChatBox() {
-    var button = $('[role="button"]');
+    var $button = $('.typeform-share');
 
-    button.each(function() {
-
-        // Default mouse click event
-        $(this).on('click', buttonClick);
-
-        // Handle 'space bar' and 'enter' click events,
-        // expected behaviour for an actual <button> element
-        $(this).on('keydown', function(e) {
-            if (e.which === 32 || e.which === 13) {
-                e.preventDefault();
-                buttonClick();
+    if ($button.length > 0) {
+        $button.each(function() {
+            console.log($(this));
+            if ($(this).hasClass('on')) {
+                console.log('coool beans')
+            } else {
+                setTimeout(function() { $(this).click() }, 1000);
             }
         });
-
-        if ($(this).hasClass('on')) {
-            console.log('coool beans')
-        } else {
-            $(this).addClass('on').click();
-        }
-
-    });
-
-    function buttonClick() {
-        // Do something useful on each click
-        console.log('Clicked!');
     }
 }
 
@@ -263,7 +247,7 @@ function etonXinit() {
     validation();
     courseTypes();
     registerReload();
-    // openChatBox();
+    openChatBox();
 }
 
 etonXinit();
