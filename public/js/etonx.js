@@ -200,8 +200,6 @@ function courseTypes() {
 
 function etonXinit() {
 
-    console.log('check');
-
     customTabs();
     $('.tooltip').tooltipster();
     $("#datepicker").datepicker({
@@ -218,11 +216,18 @@ function etonXinit() {
     validation();
     courseTypes();
 
-    // function callTypeForm() {
-    //     $("body a:last-child").click()
+    if ($('.reload')) {
+        (function() {
+            if (window.localStorage) {
+                if (!localStorage.getItem('firstLoad')) {
+                    localStorage['firstLoad'] = true;
+                    window.location.reload();
+                } else
+                    localStorage.removeItem('firstLoad');
+            }
+        })();
+    }
 
-    // }
-    // callTypeForm();
 }
 
 etonXinit();
