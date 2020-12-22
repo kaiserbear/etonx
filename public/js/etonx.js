@@ -212,15 +212,20 @@ function registerReload() {
 }
 
 function openChatBox() {
-    var $button = $('.typeform-share');
+    var button = $('[role="button"]');
 
-    if ($button.length > 0) {
-        $button.each(function() {
-            console.log($(this));
+    console.log(button);
+
+    if (button.length > 0) {
+
+        console.log('openChatBox');
+
+        button.each(function() {
             if ($(this).hasClass('on')) {
                 console.log('coool beans')
             } else {
-                setTimeout(function() { $(this).click() }, 1000);
+                $(this)[0].addClass('on');
+                $(this)[0].trigger("click");
             }
         });
     }
@@ -228,8 +233,8 @@ function openChatBox() {
 
 function etonXinit() {
     console.log('etonXinit');
-    customTabs();
 
+    customTabs();
     $('.tooltip').tooltipster();
 
     $("#datepicker").datepicker({
@@ -247,7 +252,7 @@ function etonXinit() {
     validation();
     courseTypes();
     registerReload();
-    openChatBox();
+    // openChatBox();
 }
 
 etonXinit();
