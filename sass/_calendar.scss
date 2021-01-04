@@ -7,6 +7,10 @@
     tbody {
         background: white;
     }
+    .btn {
+        color: white;
+        margin-top: 1rem;
+    }
 }
 
 #calendar tr,
@@ -81,10 +85,21 @@ caption {
     padding: 5px;
     margin-bottom: 5px;
     line-height: 14px;
-    background: #e4f2f2;
-    border: 1px solid #b5dbdc;
-    color: #009aaf;
+    color: black;
     text-decoration: none;
+    strong {
+        color: black;
+        font-weight: bolder;
+    }
+    &.event-1 {
+        background: #ffa5004a;
+    }
+    &.event-2 {
+        background: #0011ff4a;
+    }
+    .event-time {
+        font-weight: bold;
+    }
 }
 
 #calendar .event-desc {

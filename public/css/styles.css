@@ -6606,6 +6606,10 @@ ul {
   background-color: #ffffff;
   color: #1F354F; }
 
+.btn-quaternary {
+  background-color: orange;
+  color: white; }
+
 .btn-small {
   font-size: 14px; }
 
@@ -6963,6 +6967,11 @@ footer {
     padding: 0.4rem 2rem;
     border-radius: 5px;
     margin-right: 1rem; }
+
+.course-modal .tutor {
+  text-align: center; }
+  .course-modal .tutor img {
+    width: 100px; }
 
 .stand-out .panel {
   background: #F2F2F2;
@@ -8518,6 +8527,9 @@ footer {
   grid-template-columns: repeat(7, 1fr); }
   #calendar tbody {
     background: white; }
+  #calendar .btn {
+    color: white;
+    margin-top: 1rem; }
 
 #calendar tr,
 #calendar tbody {
@@ -8581,10 +8593,17 @@ caption {
   padding: 5px;
   margin-bottom: 5px;
   line-height: 14px;
-  background: #e4f2f2;
-  border: 1px solid #b5dbdc;
-  color: #009aaf;
+  color: black;
   text-decoration: none; }
+  #calendar .event strong {
+    color: black;
+    font-weight: bolder; }
+  #calendar .event.event-1 {
+    background: #ffa5004a; }
+  #calendar .event.event-2 {
+    background: #0011ff4a; }
+  #calendar .event .event-time {
+    font-weight: bold; }
 
 #calendar .event-desc {
   color: #666;

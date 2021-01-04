@@ -78,7 +78,10 @@
     const swup = new Swup({
         plugins: [new SwupBodyClassPlugin(), new SwupFormsPlugin()]
     }); // only this line when included with script tag
-    swup.on('contentReplaced', etonXinit);
+    swup.on('contentReplaced', function() {
+        etonXinit();
+        window.scrollTo(0, 0);
+    });
 </script>
 
 <div class="cui-embed" data-cui-uid="AADwufCp" data-cui-avatar="https://images.typeform.com/images/XVXkS3D8pwEL" data-cui-mode="pill" data-cui-pill-button-color="#F3CD59"></div>
