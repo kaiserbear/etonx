@@ -312,7 +312,7 @@ footer {
     }
     .price-span {
         position: absolute;
-        background: #2ed2b6;
+        background: $secondary;
         border-radius: 50%;
         width: 175px;
         height: 175px;
@@ -546,6 +546,9 @@ main {
             position: relative;
             .price-span {
                 background: #ececec;
+            }
+            ul {
+                width: 100%;
             }
         }
         .courses-type {

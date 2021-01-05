@@ -6997,7 +6997,7 @@ footer {
 
 .tutor-group-heading .price-span {
   position: absolute;
-  background: #2ed2b6;
+  background: #96CBC3;
   border-radius: 50%;
   width: 175px;
   height: 175px;
@@ -7180,6 +7180,8 @@ main.courses .self-study {
   position: relative; }
   main.courses .self-study .price-span {
     background: #ececec; }
+  main.courses .self-study ul {
+    width: 100%; }
 
 main.courses .courses-type {
   position: relative; }
