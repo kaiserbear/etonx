@@ -62,15 +62,21 @@ router.get("/courses", function(req, res) {
     });
 });
 
-router.get("/courses/:course", function(req, res) {
-    res.render("course-page", {
+router.get("/courses/university-skills", function(req, res) {
+    res.render("course-page-uis", {
         version: pjson.version,
         user: req.user,
         course_title: req.params.course
     });
 });
 
-
+router.get("/courses/resilience", function(req, res) {
+    res.render("course-page-res", {
+        version: pjson.version,
+        user: req.user,
+        course_title: req.params.course
+    });
+});
 
 // PURCHASE ROUTES
 router.get("/check", function(req, res) {

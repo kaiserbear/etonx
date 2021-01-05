@@ -6974,32 +6974,140 @@ footer {
     width: 100px; }
 
 .stand-out .panel {
-  background: #F2F2F2;
+  background: #f5f5f5;
   margin-bottom: 1rem;
   height: 260px;
   border-left: 0;
-  padding: 7rem 0 0; }
-  .stand-out .panel h2 {
-    text-align: center; }
+  padding: 3rem; }
+  .stand-out .panel h3 {
+    text-align: center;
+    font-size: 48px;
+    margin-bottom: -1rem; }
+
+.check-list li {
+  background: url(/img/check-tick.svg) no-repeat;
+  display: inline-block;
+  min-height: 39px;
+  margin: 0.5rem 0;
+  width: 100%;
+  padding: 10px 0 0 4rem; }
+
+.tutor-group-heading .container {
+  position: relative; }
+
+.tutor-group-heading .price-span {
+  position: absolute;
+  background: #2ed2b6;
+  border-radius: 50%;
+  width: 175px;
+  height: 175px;
+  padding: 3.9rem 1rem;
+  right: 0;
+  top: 52px;
+  text-align: center; }
+  .tutor-group-heading .price-span h3 {
+    font-size: 4rem;
+    color: white; }
+  .tutor-group-heading .price-span span {
+    color: black; }
+
+.indicator {
+  position: fixed;
+  z-index: 1000;
+  bottom: 40px;
+  right: 13px;
+  width: 60px;
+  height: 60px;
+  margin-left: -30px;
+  /* border: 2px solid #1F354F; */
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  border-radius: 50%;
+  animation: bounce 2s infinite;
+  -webkit-animation: bounce 2s infinite;
+  -moz-animation: bounce 2s infinite;
+  -o-animation: bounce 2s infinite; }
+  .indicator .svg-inline--fa {
+    width: 60px;
+    display: block;
+    text-align: center;
+    color: #1F354F;
+    font: normal 20px 'FontAwesome';
+    line-height: 60px;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased; }
+    .indicator .svg-inline--fa::before {
+      content: "\f107"; }
+
+@-webkit-keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    -webkit-transform: translateY(0); }
+  40% {
+    -webkit-transform: translateY(-30px); }
+  60% {
+    -webkit-transform: translateY(-15px); } }
+
+@-moz-keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    -moz-transform: translateY(0); }
+  40% {
+    -moz-transform: translateY(-30px); }
+  60% {
+    -moz-transform: translateY(-15px); } }
+
+@-o-keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    -o-transform: translateY(0); }
+  40% {
+    -o-transform: translateY(-30px); }
+  60% {
+    -o-transform: translateY(-15px); } }
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0); }
+  40% {
+    transform: translateY(-30px); }
+  60% {
+    transform: translateY(-15px); } }
+
+.price-span {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  width: 175px;
+  height: 175px;
+  padding: 3.9rem 1rem;
+  right: 190px;
+  top: 100px;
+  text-align: center; }
+  .price-span h3 {
+    font-size: 4rem; }
+  .price-span span {
+    color: black; }
 
 .course-type-selection {
   padding: 0; }
-  .course-type-selection .price-span {
-    position: absolute;
-    background: white;
-    border-radius: 50%;
-    width: 175px;
-    height: 175px;
-    padding: 3.9rem 1rem;
-    right: 190px;
-    top: 100px;
-    text-align: center; }
-    .course-type-selection .price-span h3 {
-      font-size: 4rem; }
-    .course-type-selection .price-span span {
-      color: black; }
   .course-type-selection .ui-tabs {
-    padding: 0; }
+    padding: 0;
+    width: 100%; }
   .course-type-selection .nav {
     width: 100%;
     margin: 0;
@@ -7016,7 +7124,7 @@ footer {
   .course-type-selection .tab-container {
     background: #444444;
     color: white;
-    padding: 5rem 0; }
+    padding: 1rem 0; }
     .course-type-selection .tab-container p,
     .course-type-selection .tab-container h2 {
       color: white; }
@@ -7048,6 +7156,65 @@ footer {
 
 .cd-gallery img {
   width: inherit; }
+
+main.courses iframe {
+  width: 100%; }
+
+main.courses p {
+  padding: 2rem 0;
+  line-height: 30px; }
+
+main.courses .what-to-expect .check-list {
+  padding-top: 0; }
+
+main.courses .what-to-expect .panel {
+  border-left: none;
+  text-align: center; }
+  main.courses .what-to-expect .panel img {
+    height: 50px; }
+  main.courses .what-to-expect .panel h4 {
+    margin: 2rem 0;
+    height: 30px; }
+
+main.courses .self-study {
+  position: relative; }
+  main.courses .self-study .price-span {
+    background: #ececec; }
+
+main.courses .courses-type {
+  position: relative; }
+  main.courses .courses-type .panel {
+    border-left: none;
+    padding: 3rem; }
+  main.courses .courses-type img {
+    width: 100%; }
+
+main.courses section.no-padding {
+  padding: 4rem 0 0; }
+
+main.courses section.syllabus {
+  background: antiquewhite; }
+  main.courses section.syllabus h4 {
+    font-size: 18px;
+    line-height: 32px;
+    background-color: #f5d5ab;
+    padding: 1rem 0 1rem 30px;
+    position: relative;
+    left: -42px; }
+  main.courses section.syllabus .entry {
+    margin-bottom: 4rem; }
+  main.courses section.syllabus ul {
+    padding: 0;
+    margin: 0; }
+    main.courses section.syllabus ul li {
+      list-style-type: disc;
+      display: list-item;
+      list-style-position: inside;
+      margin: 0; }
+
+main.courses h2 {
+  display: inline-block;
+  width: 100%; }
 
 .list-of-courses {
   background-color: #D8E2DA; }
@@ -8556,7 +8723,7 @@ caption {
   border: 1px solid #ccc; }
 
 #calendar .weekdays {
-  background: #2e8e59; }
+  background: #333333; }
 
 #calendar .weekdays th {
   text-align: center;

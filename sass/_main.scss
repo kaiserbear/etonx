@@ -282,38 +282,173 @@ footer {
 
 .stand-out {
     .panel {
-        background: $grey-5;
+        background: #f5f5f5;
         margin-bottom: 1rem;
         height: 260px;
         border-left: 0;
-        padding: 7rem 0 0;
-        h2 {
+        padding: 3rem;
+        h3 {
             text-align: center;
+            font-size: 48px;
+            margin-bottom: -1rem;
         }
     }
 }
 
-.course-type-selection {
-    padding: 0;
+.check-list {
+    li {
+        background: url(/img/check-tick.svg) no-repeat;
+        display: inline-block;
+        min-height: 39px;
+        margin: 0.5rem 0;
+        width: 100%;
+        padding: 10px 0 0 4rem;
+    }
+}
+
+.tutor-group-heading {
+    .container {
+        position: relative;
+    }
     .price-span {
         position: absolute;
-        background: white;
+        background: #2ed2b6;
         border-radius: 50%;
         width: 175px;
         height: 175px;
         padding: 3.9rem 1rem;
-        right: 190px;
-        top: 100px;
+        right: 0;
+        top: 52px;
         text-align: center;
         h3 {
             font-size: 4rem;
+            color: white;
         }
         span {
             color: black;
         }
     }
+}
+
+.indicator {
+    position: fixed;
+    z-index: 1000;
+    bottom: 40px;
+    right: 13px;
+    width: 60px;
+    height: 60px;
+    margin-left: -30px;
+    /* border: 2px solid #1F354F; */
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    border-radius: 50%;
+    animation: bounce 2s infinite;
+    -webkit-animation: bounce 2s infinite;
+    -moz-animation: bounce 2s infinite;
+    -o-animation: bounce 2s infinite;
+    .svg-inline--fa {
+        width: 60px;
+        display: block;
+        text-align: center;
+        color: $primary;
+        font: normal 20px 'FontAwesome';
+        line-height: 60px;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        &::before {
+            content: "\f107";
+        }
+    }
+}
+
+@-webkit-keyframes bounce {
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        -webkit-transform: translateY(0);
+    }
+    40% {
+        -webkit-transform: translateY(-30px);
+    }
+    60% {
+        -webkit-transform: translateY(-15px);
+    }
+}
+
+@-moz-keyframes bounce {
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        -moz-transform: translateY(0);
+    }
+    40% {
+        -moz-transform: translateY(-30px);
+    }
+    60% {
+        -moz-transform: translateY(-15px);
+    }
+}
+
+@-o-keyframes bounce {
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        -o-transform: translateY(0);
+    }
+    40% {
+        -o-transform: translateY(-30px);
+    }
+    60% {
+        -o-transform: translateY(-15px);
+    }
+}
+
+@keyframes bounce {
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-30px);
+    }
+    60% {
+        transform: translateY(-15px);
+    }
+}
+
+.price-span {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    width: 175px;
+    height: 175px;
+    padding: 3.9rem 1rem;
+    right: 190px;
+    top: 100px;
+    text-align: center;
+    h3 {
+        font-size: 4rem;
+    }
+    span {
+        color: black;
+    }
+}
+
+.course-type-selection {
+    padding: 0;
     .ui-tabs {
         padding: 0;
+        width: 100%;
     }
     .nav {
         width: 100%;
@@ -336,7 +471,7 @@ footer {
     .tab-container {
         background: $darkBlack;
         color: white;
-        padding: 5rem 0;
+        padding: 1rem 0;
         p,
         h2 {
             color: white;
@@ -380,6 +515,97 @@ footer {
 
 .cd-gallery img {
     width: inherit;
+}
+
+main {
+    &.courses {
+        iframe {
+            width: 100%;
+        }
+        p {
+            padding: 2rem 0;
+            line-height: 30px;
+        }
+        .what-to-expect {
+            .check-list {
+                padding-top: 0;
+            }
+            .panel {
+                border-left: none;
+                text-align: center;
+                img {
+                    height: 50px;
+                }
+                h4 {
+                    margin: 2rem 0;
+                    height: 30px;
+                }
+            }
+        }
+        .self-study {
+            position: relative;
+            .price-span {
+                background: #ececec;
+            }
+        }
+        .courses-type {
+            position: relative;
+            &::after {
+                // content: "";
+                // background-image: url("/img/courses-type-bg.jpg");
+                // background-size: cover;
+                // background-repeat: no-repeat;
+                // opacity: 0.5;
+                // top: 0;
+                // left: 0;
+                // bottom: 0;
+                // right: 0;
+                // position: absolute;
+                // z-index: -1;
+            }
+            .panel {
+                border-left: none;
+                padding: 3rem;
+            }
+            img {
+                width: 100%;
+            }
+        }
+        section {
+            // padding: 4rem 0 0;
+            &.no-padding {
+                padding: 4rem 0 0;
+            }
+            &.syllabus {
+                background: antiquewhite;
+                h4 {
+                    font-size: 18px;
+                    line-height: 32px;
+                    background-color: #f5d5ab;
+                    padding: 1rem 0 1rem 30px;
+                    position: relative;
+                    left: -42px;
+                }
+                .entry {
+                    margin-bottom: 4rem;
+                }
+                ul {
+                    padding: 0;
+                    margin: 0;
+                    li {
+                        list-style-type: disc;
+                        display: list-item;
+                        list-style-position: inside;
+                        margin: 0;
+                    }
+                }
+            }
+        }
+        h2 {
+            display: inline-block;
+            width: 100%;
+        }
+    }
 }
 
 .list-of-courses {
