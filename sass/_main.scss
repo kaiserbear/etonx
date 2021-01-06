@@ -253,6 +253,36 @@ footer {
     background: $tertiary;
 }
 
+hr {
+    width: 100%;
+    margin: 4rem 0;
+}
+
+.dark-1 {
+    background: #333333;
+}
+
+.dark-2 {
+    background: #444444;
+}
+
+.dark-1,
+.dark-2 {
+    color: white;
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    p,
+    .panel p {
+        color: white;
+    }
+    .panel {
+        background-color: #333333;
+    }
+}
+
 .home__sign-up {
     background: $tertiary;
     text-align: center;
@@ -268,15 +298,6 @@ footer {
         padding: 0.4rem 2rem;
         border-radius: 5px;
         margin-right: 1rem;
-    }
-}
-
-.course-modal {
-    .tutor {
-        text-align: center;
-        img {
-            width: 100px;
-        }
     }
 }
 
@@ -306,27 +327,40 @@ footer {
     }
 }
 
+.study-list {
+    li {
+        background: url(/img/pencil.svg) no-repeat;
+        background-size: contain;
+        display: inline-block;
+        min-height: 39px;
+        margin: 0.5rem 0;
+        width: 100%;
+        padding: 10px 0 0 4rem;
+    }
+}
+
+.price-span {
+    position: relative;
+    background: $secondary;
+    border-radius: 50%;
+    width: 175px;
+    height: 175px;
+    padding: 3.9rem 1rem;
+    right: 0;
+    top: 10px;
+    text-align: center;
+    h3 {
+        font-size: 4rem;
+        color: white;
+    }
+    span {
+        color: black;
+    }
+}
+
 .tutor-group-heading {
     .container {
         position: relative;
-    }
-    .price-span {
-        position: absolute;
-        background: $secondary;
-        border-radius: 50%;
-        width: 175px;
-        height: 175px;
-        padding: 3.9rem 1rem;
-        right: 0;
-        top: 52px;
-        text-align: center;
-        h3 {
-            font-size: 4rem;
-            color: white;
-        }
-        span {
-            color: black;
-        }
     }
 }
 
@@ -426,24 +460,23 @@ footer {
     }
 }
 
-.price-span {
-    position: absolute;
-    background: white;
-    border-radius: 50%;
-    width: 175px;
-    height: 175px;
-    padding: 3.9rem 1rem;
-    right: 190px;
-    top: 100px;
-    text-align: center;
-    h3 {
-        font-size: 4rem;
-    }
-    span {
-        color: black;
-    }
-}
-
+// .price-span {
+//     position: absolute;
+//     background: white;
+//     border-radius: 50%;
+//     width: 175px;
+//     height: 175px;
+//     padding: 3.9rem 1rem;
+//     right: 190px;
+//     top: 100px;
+//     text-align: center;
+//     h3 {
+//         font-size: 4rem;
+//     }
+//     span {
+//         color: black;
+//     }
+// }
 .course-type-selection {
     padding: 0;
     .ui-tabs {
@@ -472,6 +505,7 @@ footer {
         background: $darkBlack;
         color: white;
         padding: 1rem 0;
+        margin-bottom: 5rem;
         p,
         h2 {
             color: white;
@@ -487,8 +521,11 @@ footer {
         .nav-link {
             background-color: transparent;
             border-color: transparent;
-            color: inherit;
+            color: black;
             font-size: 16px;
+            &.active {
+                color: white;
+            }
         }
     }
     .ui-state-default {
@@ -518,7 +555,7 @@ footer {
 }
 
 main {
-    &.courses {
+    &.single-course {
         iframe {
             width: 100%;
         }
@@ -527,6 +564,10 @@ main {
             line-height: 30px;
         }
         .what-to-expect {
+            padding: 0;
+            h3 {
+                margin-bottom: 3rem;
+            }
             .check-list {
                 padding-top: 0;
             }
@@ -542,10 +583,25 @@ main {
                 }
             }
         }
+        .course-modal {
+            .tutor {
+                text-align: center;
+                margin-bottom: 2rem;
+                img {
+                    width: 100px;
+                }
+            }
+            p {
+                padding: 0;
+            }
+        }
         .self-study {
             position: relative;
             .price-span {
                 background: #ececec;
+                h3 {
+                    color: $primary;
+                }
             }
             ul {
                 width: 100%;
@@ -649,6 +705,15 @@ main {
                 display: inline-block;
             }
         }
+    }
+}
+
+.btn {
+    &.purchase-btn {
+        position: relative;
+        top: 75px;
+        font-size: 20px;
+        background: gold;
     }
 }
 

@@ -1,7 +1,7 @@
 <% include ./partials/header %>
     <% include ./partials/alerts %>
         <% include ./partials/nav %>
-            <main id="swup" class="transition-fade courses">
+            <main id="swup" class="transition-fade courses single-course">
 
                 <section class="intro">
                     <div class="container">
@@ -162,13 +162,15 @@
                     </div>
                 </section>
 
+                <!-- Course Type Selection-->
+
                 <section class="courses-type">
                     <div class="container">
                         <div class="row">
                             <div class="col-6">
                                 <h2>Course Types</h2>
-                                <p>You can take our courses in many different ways to suit your preferred learning style, goals and budget. You can attend virtually via our easy to use the software, which is taught by an EtonX certified tutor. The other
-                                    method is a Self Study option, which means you can learn at your own pace.</p>
+                                <p>You can take our courses in ways to suit your preferred learning style, goals and budget. You can attend a virtual <strong>Tutor Group</strong> via our easy to use the software, which is taught by an EtonX certified tutor.
+                                    The other method is a <strong>Self Study</strong> option, which means you can learn at your own pace.</p>
                             </div>
                             <div class="col-6">
                                 <img src="/img/courses-type-bg.jpg" alt="course types" />
@@ -177,26 +179,91 @@
                     </div>
                 </section>
 
-                <section class="tutor-group-heading">
-                    <div class="row">
-                        <div class="container">
-                            <h3>Tutor Group</h3>
-                            <ul class="check-list">
-                                <li>Live class with tutor and up to 8 other students</li>
-                                <li>Certificate of achievement from Eton College</li>
-                                <li>Personalised feedback and action plan</li>
-                            </ul>
-                            <div class="price-span">
-                                <h3>&pound;349</h3>
-                                <span>7 week course</span>
+                <!-- Tutor group -->
+
+                <section class="tutor-group-heading dark-1">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12">
+                                <h2>Tutor Group</h2>
+                                <p>Our live classes are led by a specially trained tutor. With up to 8 other students you will participate in guided discussions and collaborative tasks to develop your resilience skills over the course of 7 weeks.</p>
+                            </div>
+
+                            <div class="col-12 col-md-6">
+                                <ul class="check-list">
+                                    <li>Live class with tutor and up to 8 other students</li>
+                                    <li>Certificate of achievement from Eton College</li>
+                                    <li>Personalised feedback and action plan</li>
+                                </ul>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="row">
+                                    <div class="col-12 col-md-6">
+                                        <div class="price-span">
+                                            <h3>&pound;349</h3>
+                                            <span>7 week course</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <a href="#tabs" class="btn btn-secondary purchase-btn scroll">Purchase a course</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </section>
 
-                <section class="course-type-selection">
+                <section class="what-to-expect dark-1">
                     <div class="container">
                         <div class="row">
+                            <hr />
+                            <div class="col-12">
+                                <h3>What can I expect?</h3>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <iframe width="560" height="315" src="https://www.youtube.com/embed/EsROnzJ02ww" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <div class=" col-12 col-md-6">
+                                <ul class="study-list">
+                                    <li>Self-Study Tasks: 40 minutes</li>
+                                    <li>Peer Learning Tasks: 20 minutes</li>
+                                    <li>Live Group Class: 50 minutes</li>
+                                    <li>Reflection Task: 10 minutes</li>
+                                </ul>
+                                <p>The course concludes with a task where you will receive a grade and personalised feedback from your tutor along with a SMART action plan to help you continue to develop your skills in the real world. </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <hr />
+                            <div class="col-md-3 col-12 panel">
+                                <img src="/img/shield.svg" alt="Tutor" />
+                                <h4>Safeguarding</h4>
+                                <p>As part of our rigorous safeguarding procedures, all EtonX tutors and staff have passed an enhanced DBS check and Child Safeguarding course. </p>
+                            </div>
+                            <div class="col-md-3 col-12 panel">
+                                <img src="/img/unlock.svg" alt="Tutor" />
+                                <h4>Privacy & Data </h4>
+                                <p>We take every step to ensure the security of your personal data. For information on how we collect and use your data, see our Privacy Policy.</p>
+                            </div>
+                            <div class="col-md-3 col-12 panel">
+                                <img src="/img/speedometer.svg" alt="Tutor" />
+                                <h4>Technical Requirements </h4>
+                                <p>To ensure you have the best experience, there are some minimum requirements – click below to check if your device meets these.</p>
+                            </div>
+                            <div class="col-md-3 col-12 panel">
+                                <img src="/img/chat.svg" alt="Tutor" />
+                                <h4>Entry Requirements</h4>
+                                <p>The minimum level of English required to participate in our courses is Upper Intermediate or B2 on the CEFR.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="course-type-selection dark-1">
+                    <div class="container">
+                        <div class="row">
+                            <hr />
+                            <h3>Live timetable</h3>
                             <div id="tabs">
                                 <div class="center-tabs">
                                     <ul class="nav nav-tabs">
@@ -252,7 +319,7 @@
                                                         <div class="event-time">
                                                             8am to 8:40am GMT
                                                         </div>
-                                                        <a class="btn btn-quaternary" href="#" data-toggle="modal" data-target="#event-1">5 places left</a>
+                                                        <a class="btn btn-quaternary" href="#" data-toggle="modal" data-target="#event-1">Enroll</a>
                                                     </div>
                                                 </td>
                                                 <td class="day">
@@ -819,84 +886,47 @@
                     </div>
                 </section>
 
-                <section class="what-to-expect">
+                <!-- Self study  -->
+
+                <section class="self-study dark-2">
                     <div class="container">
                         <div class="row">
                             <div class="col-12">
-                                <h3>What can I expect?</h3>
-                                <p>Our live classes are led by a specially trained tutor. With up to 8 other students you will participate in guided discussions and collaborative tasks to develop your resilience skills over the course of 7 weeks. Each week
-                                    consists of: </p>
+                                <h2>Self Study</h2>
+                                <p>Whether you’ve got ten minutes or an hour to spare each week, our self-study courses allow you to access the same great self-study materials from our Tutor Group courses at a time and pace that suits your schedule.</p>
                             </div>
                             <div class="col-12 col-md-6">
-                                <iframe width="560" height="315" src="https://www.youtube.com/embed/EsROnzJ02ww" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            </div>
-                            <div class=" col-12 col-md-6">
                                 <ul class="check-list">
-                                    <li>Self-Study Tasks: 40 minutes</li>
-                                    <li>Peer Learning Tasks: 20 minutes</li>
-                                    <li>Live Group Class: 50 minutes</li>
-                                    <li>Reflection Task: 10 minutes</li>
+                                    <li>7-10 hours of self-study material </li>
+                                    <li>Certificate of completion </li>
                                 </ul>
-                                <p>The course concludes with ?? task where you will receive a grade and personalised feedback from your tutor along with a SMART action plan to help you continue to develop your skills in the real world. </p>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="row">
+                                    <div class="col-12 col-md-6">
+                                        <div class="price-span">
+                                            <h3>&pound;49</h3>
+                                            <span>Self Study</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <a href="/check" class="btn btn-secondary purchase-btn">Purchase Self Study</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                        <hr />
                         <div class="row">
-                            <div class="col-md-3 col-12 panel">
-                                <img src="/img/shield.svg" alt="Tutor" />
-                                <h4>Safeguarding</h4>
-                                <p>As part of our rigorous safeguarding procedures, all EtonX tutors and staff have passed an enhanced DBS check and Child Safeguarding course. </p>
-                            </div>
-                            <div class="col-md-3 col-12 panel">
-                                <img src="/img/unlock.svg" alt="Tutor" />
-                                <h4>Privacy & Data </h4>
-                                <p>We take every step to ensure the security of your personal data. For information on how we collect and use your data, see our Privacy Policy.</p>
-                            </div>
-                            <div class="col-md-3 col-12 panel">
-                                <img src="/img/speedometer.svg" alt="Tutor" />
-                                <h4>Technical Requirements </h4>
-                                <p>To ensure you have the best experience, there are some minimum requirements – click below to check if your device meets these.</p>
-                            </div>
-                            <div class="col-md-3 col-12 panel">
-                                <img src="/img/chat.svg" alt="Tutor" />
-                                <h4>Entry Requirements</h4>
-                                <p>The minimum level of English required to participate in our courses is Upper Intermediate or B2 on the CEFR.</p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-
-                <section class="self-study">
-                    <div class="container">
-                        <div class="row">
-                            <h3>Self Study</h3>
-                            <p>Whether you’ve got ten minutes or an hour to spare each week, our self-study courses allow you to access the same great self-study materials from our Tutor Group courses at a time and pace that suits your schedule. [TODO]</p>
-                            <ul class="check-list">
-                                <li>7-10 hours of self-study material </li>
-                                <li>Certificate of completion </li>
-                            </ul>
-                            <div class="price-span">
-                                <h3>&pound;49</h3>
-                                <span>Self</span>
-                            </div>
-
-                            <a href="/check" class="btn btn-primary">Purchase Self Study</a>
-                            <!-- <p>No need to wait! Our self-study course is available now for just £49. </p> -->
-                        </div>
-
-                        <!-- <div class="row">
                             <div class="col-12">
-                                <img src="/img/female-tutor.svg" alt="Tutor" width="100" align="right" />
                                 <h3>What can I expect?</h3>
-                                <p>Our self-study courses offer 7-10 hours of online material which you can work through at your own pace. </p>
-                                <p>Each section of the course consists of:</p>
-                                <ul class="check-list">
+                                <p>Our self-study courses offer 7-10 hours of online material which you can work through at your own pace. Each section of the course consists of: </p>
+                                <ul class="study-list">
                                     <li>Self-Study: 50 minutes </li>
                                     <li>Reflection: 10 minutes </li>
                                 </ul>
                                 <p>At the end of the course, you’ll have the chance to build a SMART action plan to help you continue to develop your skills in the real world. </p>
                             </div>
-                        </div> -->
+                        </div>
                     </div>
                 </section>
 
@@ -913,8 +943,6 @@
                     </div>
                 </section>
 
-
-
                 <!-- Modals -->
 
 
@@ -928,16 +956,16 @@
                           </button>
                             </div>
                             <div class="modal-body">
-                                <p>This course starts on the <strong>2nd January 2020</strong> and will last for 3 weeks.</p>
                                 <div class="tutor">
                                     <img src="/img/female-tutor.svg" alt="Tutor" />
                                     <h4>Sally Field</h4>
-                                    <p>Sally has 20 years experience teaching and is a certified EtonX tutor. etc. etc.</p>
                                 </div>
+                                <p>This course starts on the <strong>2nd January 2020</strong> and will last for 3 weeks.</p>
+                                <p>Sally has 20 years experience teaching and is a certified EtonX tutor. etc. etc.</p>
                             </div>
                             <div class="modal-footer">
                                 <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
-                                <a href="/check" data-dismiss="modal" class="btn btn-primary">Purchase & Enroll</a>
+                                <a href="/check" data-dismiss="modal" class="btn btn-gold">Purchase & Enroll</a>
                             </div>
                         </div>
                     </div>
@@ -962,9 +990,10 @@
                             </div>
                             <div class="modal-footer">
                                 <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
-                                <a href="/check" data-dismiss="modal" class="btn btn-primary">Purchase & Enroll</a>
+                                <a href="/check" data-dismiss="modal" class="btn btn-primary ">Purchase & Enroll</a>
                             </div>
                         </div>
                     </div>
                 </div>
+
                 <% include partials/footer %>

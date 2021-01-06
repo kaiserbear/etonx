@@ -6540,6 +6540,9 @@ html,
 body {
   height: 100%; }
 
+html {
+  scroll-behavior: smooth; }
+
 .transition-fade {
   transition: 0.4s;
   opacity: 1; }
@@ -6604,6 +6607,10 @@ ul {
 
 .btn-tertiary {
   background-color: #ffffff;
+  color: #1F354F; }
+
+.btn-gold {
+  background-color: gold;
   color: #1F354F; }
 
 .btn-quaternary {
@@ -6953,6 +6960,38 @@ footer {
 .tertiary {
   background: #D8E2DA; }
 
+hr {
+  width: 100%;
+  margin: 4rem 0; }
+
+.dark-1 {
+  background: #333333; }
+
+.dark-2 {
+  background: #444444; }
+
+.dark-1,
+.dark-2 {
+  color: white; }
+  .dark-1 h1,
+  .dark-1 h2,
+  .dark-1 h3,
+  .dark-1 h4,
+  .dark-1 h5,
+  .dark-1 p,
+  .dark-1 .panel p,
+  .dark-2 h1,
+  .dark-2 h2,
+  .dark-2 h3,
+  .dark-2 h4,
+  .dark-2 h5,
+  .dark-2 p,
+  .dark-2 .panel p {
+    color: white; }
+  .dark-1 .panel,
+  .dark-2 .panel {
+    background-color: #333333; }
+
 .home__sign-up {
   background: #D8E2DA;
   text-align: center;
@@ -6967,11 +7006,6 @@ footer {
     padding: 0.4rem 2rem;
     border-radius: 5px;
     margin-right: 1rem; }
-
-.course-modal .tutor {
-  text-align: center; }
-  .course-modal .tutor img {
-    width: 100px; }
 
 .stand-out .panel {
   background: #f5f5f5;
@@ -6992,24 +7026,33 @@ footer {
   width: 100%;
   padding: 10px 0 0 4rem; }
 
-.tutor-group-heading .container {
-  position: relative; }
+.study-list li {
+  background: url(/img/pencil.svg) no-repeat;
+  background-size: contain;
+  display: inline-block;
+  min-height: 39px;
+  margin: 0.5rem 0;
+  width: 100%;
+  padding: 10px 0 0 4rem; }
 
-.tutor-group-heading .price-span {
-  position: absolute;
+.price-span {
+  position: relative;
   background: #96CBC3;
   border-radius: 50%;
   width: 175px;
   height: 175px;
   padding: 3.9rem 1rem;
   right: 0;
-  top: 52px;
+  top: 10px;
   text-align: center; }
-  .tutor-group-heading .price-span h3 {
+  .price-span h3 {
     font-size: 4rem;
     color: white; }
-  .tutor-group-heading .price-span span {
+  .price-span span {
     color: black; }
+
+.tutor-group-heading .container {
+  position: relative; }
 
 .indicator {
   position: fixed;
@@ -7088,21 +7131,6 @@ footer {
   60% {
     transform: translateY(-15px); } }
 
-.price-span {
-  position: absolute;
-  background: white;
-  border-radius: 50%;
-  width: 175px;
-  height: 175px;
-  padding: 3.9rem 1rem;
-  right: 190px;
-  top: 100px;
-  text-align: center; }
-  .price-span h3 {
-    font-size: 4rem; }
-  .price-span span {
-    color: black; }
-
 .course-type-selection {
   padding: 0; }
   .course-type-selection .ui-tabs {
@@ -7124,7 +7152,8 @@ footer {
   .course-type-selection .tab-container {
     background: #444444;
     color: white;
-    padding: 1rem 0; }
+    padding: 1rem 0;
+    margin-bottom: 5rem; }
     .course-type-selection .tab-container p,
     .course-type-selection .tab-container h2 {
       color: white; }
@@ -7138,8 +7167,11 @@ footer {
     .course-type-selection .ui-state-active .nav-link {
       background-color: transparent;
       border-color: transparent;
-      color: inherit;
+      color: black;
       font-size: 16px; }
+      .course-type-selection .ui-state-default .nav-link.active,
+      .course-type-selection .ui-state-active .nav-link.active {
+        color: white; }
   .course-type-selection .ui-state-default {
     background: #F2F2F2; }
   .course-type-selection .ui-state-active {
@@ -7157,64 +7189,78 @@ footer {
 .cd-gallery img {
   width: inherit; }
 
-main.courses iframe {
+main.single-course iframe {
   width: 100%; }
 
-main.courses p {
+main.single-course p {
   padding: 2rem 0;
   line-height: 30px; }
 
-main.courses .what-to-expect .check-list {
-  padding-top: 0; }
+main.single-course .what-to-expect {
+  padding: 0; }
+  main.single-course .what-to-expect h3 {
+    margin-bottom: 3rem; }
+  main.single-course .what-to-expect .check-list {
+    padding-top: 0; }
+  main.single-course .what-to-expect .panel {
+    border-left: none;
+    text-align: center; }
+    main.single-course .what-to-expect .panel img {
+      height: 50px; }
+    main.single-course .what-to-expect .panel h4 {
+      margin: 2rem 0;
+      height: 30px; }
 
-main.courses .what-to-expect .panel {
-  border-left: none;
-  text-align: center; }
-  main.courses .what-to-expect .panel img {
-    height: 50px; }
-  main.courses .what-to-expect .panel h4 {
-    margin: 2rem 0;
-    height: 30px; }
+main.single-course .course-modal .tutor {
+  text-align: center;
+  margin-bottom: 2rem; }
+  main.single-course .course-modal .tutor img {
+    width: 100px; }
 
-main.courses .self-study {
+main.single-course .course-modal p {
+  padding: 0; }
+
+main.single-course .self-study {
   position: relative; }
-  main.courses .self-study .price-span {
+  main.single-course .self-study .price-span {
     background: #ececec; }
-  main.courses .self-study ul {
+    main.single-course .self-study .price-span h3 {
+      color: #1F354F; }
+  main.single-course .self-study ul {
     width: 100%; }
 
-main.courses .courses-type {
+main.single-course .courses-type {
   position: relative; }
-  main.courses .courses-type .panel {
+  main.single-course .courses-type .panel {
     border-left: none;
     padding: 3rem; }
-  main.courses .courses-type img {
+  main.single-course .courses-type img {
     width: 100%; }
 
-main.courses section.no-padding {
+main.single-course section.no-padding {
   padding: 4rem 0 0; }
 
-main.courses section.syllabus {
+main.single-course section.syllabus {
   background: antiquewhite; }
-  main.courses section.syllabus h4 {
+  main.single-course section.syllabus h4 {
     font-size: 18px;
     line-height: 32px;
     background-color: #f5d5ab;
     padding: 1rem 0 1rem 30px;
     position: relative;
     left: -42px; }
-  main.courses section.syllabus .entry {
+  main.single-course section.syllabus .entry {
     margin-bottom: 4rem; }
-  main.courses section.syllabus ul {
+  main.single-course section.syllabus ul {
     padding: 0;
     margin: 0; }
-    main.courses section.syllabus ul li {
+    main.single-course section.syllabus ul li {
       list-style-type: disc;
       display: list-item;
       list-style-position: inside;
       margin: 0; }
 
-main.courses h2 {
+main.single-course h2 {
   display: inline-block;
   width: 100%; }
 
@@ -7240,6 +7286,12 @@ main.courses h2 {
 @media (min-width: 992px) {
   .list-of-courses ul li {
     display: inline-block; } }
+
+.btn.purchase-btn {
+  position: relative;
+  top: 75px;
+  font-size: 20px;
+  background: gold; }
 
 .purchase .btn {
   float: right;
@@ -8698,7 +8750,8 @@ main.courses h2 {
     background: white; }
   #calendar .btn {
     color: white;
-    margin-top: 1rem; }
+    margin-top: 1rem;
+    width: 100%; }
 
 #calendar tr,
 #calendar tbody {
