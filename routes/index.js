@@ -62,6 +62,11 @@ router.get("/courses", function(req, res) {
     });
 });
 
+
+router.get("/test", function(req, res) {
+    res.render("test", {});
+});
+
 router.get("/courses/university-skills", function(req, res) {
     res.render("course-page-uis", {
         version: pjson.version,
